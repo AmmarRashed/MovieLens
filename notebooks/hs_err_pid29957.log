@@ -1,0 +1,1767 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 443023360 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2743), pid=29957, tid=0x00007f77058d5700
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_191-b12) (build 1.8.0_191-b12)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.191-b12 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f7730089000):  VMThread [stack: 0x00007f77057d6000,0x00007f77058d6000] [id=29988]
+
+Stack: [0x00007f77057d6000,0x00007f77058d6000],  sp=0x00007f77058d4410,  free space=1017k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xace425]  VMError::report_and_die()+0x2c5
+V  [libjvm.so+0x4deb77]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x67
+V  [libjvm.so+0x90c570]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0x100
+V  [libjvm.so+0x903eaf]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x1f
+V  [libjvm.so+0x988346]  PSVirtualSpace::expand_by(unsigned long)+0x56
+V  [libjvm.so+0x97768b]  PSOldGen::expand_by(unsigned long) [clone .part.28]+0x1b
+V  [libjvm.so+0x977848]  PSOldGen::expand(unsigned long) [clone .part.29]+0xa8
+V  [libjvm.so+0x9783f1]  PSOldGen::resize(unsigned long)+0xe1
+V  [libjvm.so+0x97e506]  PSParallelCompact::invoke_no_policy(bool) [clone .part.118]+0xa06
+V  [libjvm.so+0x9862d5]  PSScavenge::invoke()+0x215
+V  [libjvm.so+0x935fb8]  ParallelScavengeHeap::failed_mem_allocate(unsigned long)+0x68
+V  [libjvm.so+0xacff53]  VM_ParallelGCFailedAllocation::doit()+0x93
+V  [libjvm.so+0xad50f6]  VM_Operation::evaluate()+0x46
+V  [libjvm.so+0xad347d]  VMThread::evaluate_operation(VM_Operation*) [clone .constprop.44]+0xcd
+V  [libjvm.so+0xad3a3b]  VMThread::loop()+0x37b
+V  [libjvm.so+0xad3de8]  VMThread::run()+0x78
+V  [libjvm.so+0x909c92]  java_start(Thread*)+0x102
+
+VM_Operation (0x00007f75fd9e6080): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0x00007f7678014800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f769401a000 JavaThread "block-manager-ask-thread-pool-175" daemon [_thread_blocked, id=32366, stack(0x00007f75f37da000,0x00007f75f38db000)]
+  0x00007f7688013800 JavaThread "block-manager-ask-thread-pool-174" daemon [_thread_blocked, id=32365, stack(0x00007f75ea732000,0x00007f75ea833000)]
+  0x00007f768400c000 JavaThread "block-manager-slave-async-thread-pool-180" daemon [_thread_blocked, id=32364, stack(0x00007f75ea22d000,0x00007f75ea32e000)]
+  0x00007f768403a800 JavaThread "block-manager-slave-async-thread-pool-179" daemon [_thread_blocked, id=32363, stack(0x00007f75f31d4000,0x00007f75f32d5000)]
+  0x00007f769c016800 JavaThread "block-manager-ask-thread-pool-173" daemon [_thread_blocked, id=32362, stack(0x00007f75f68ed000,0x00007f75f69ee000)]
+  0x00007f768c00d800 JavaThread "block-manager-slave-async-thread-pool-178" daemon [_thread_blocked, id=32361, stack(0x00007f75f1fc2000,0x00007f75f20c3000)]
+  0x00007f767c006000 JavaThread "block-manager-ask-thread-pool-172" daemon [_thread_blocked, id=32360, stack(0x00007f75eeb70000,0x00007f75eec71000)]
+  0x00007f7670004000 JavaThread "block-manager-ask-thread-pool-171" daemon [_thread_blocked, id=32359, stack(0x00007f75f0b90000,0x00007f75f0c91000)]
+  0x00007f766c005000 JavaThread "block-manager-slave-async-thread-pool-177" daemon [_thread_blocked, id=32358, stack(0x00007f75f1095000,0x00007f75f1196000)]
+  0x00007f766c003800 JavaThread "block-manager-slave-async-thread-pool-176" daemon [_thread_blocked, id=32357, stack(0x00007f75f6cef000,0x00007f75f6df0000)]
+  0x00007f7680015800 JavaThread "block-manager-ask-thread-pool-170" daemon [_thread_blocked, id=32356, stack(0x00007f75f40e3000,0x00007f75f41e4000)]
+  0x00007f769400b800 JavaThread "block-manager-slave-async-thread-pool-175" daemon [_thread_blocked, id=32355, stack(0x00007f75efb80000,0x00007f75efc81000)]
+  0x00007f7664004000 JavaThread "block-manager-ask-thread-pool-169" daemon [_thread_blocked, id=32354, stack(0x00007f75ead38000,0x00007f75eae39000)]
+  0x00007f765800a000 JavaThread "block-manager-ask-thread-pool-168" daemon [_thread_blocked, id=32353, stack(0x00007f75f3cdf000,0x00007f75f3de0000)]
+  0x00007f7654155000 JavaThread "block-manager-slave-async-thread-pool-174" daemon [_thread_blocked, id=32352, stack(0x00007f75efe83000,0x00007f75eff84000)]
+  0x00007f7654154000 JavaThread "block-manager-slave-async-thread-pool-173" daemon [_thread_blocked, id=32351, stack(0x00007f75e9a27000,0x00007f75e9b28000)]
+  0x00007f768402f000 JavaThread "block-manager-ask-thread-pool-167" daemon [_thread_blocked, id=32350, stack(0x00007f75f3bde000,0x00007f75f3cdf000)]
+  0x00007f7688006000 JavaThread "block-manager-slave-async-thread-pool-172" daemon [_thread_blocked, id=32349, stack(0x00007f75f0f94000,0x00007f75f1095000)]
+  0x00007f764c004800 JavaThread "block-manager-ask-thread-pool-166" daemon [_thread_blocked, id=32348, stack(0x00007f75f1bbe000,0x00007f75f1cbf000)]
+  0x00007f7640006800 JavaThread "block-manager-ask-thread-pool-165" daemon [_thread_blocked, id=32347, stack(0x00007f75eb23d000,0x00007f75eb33e000)]
+  0x00007f7638016000 JavaThread "block-manager-slave-async-thread-pool-171" daemon [_thread_blocked, id=32346, stack(0x00007f75f3de0000,0x00007f75f3ee1000)]
+  0x00007f7638015000 JavaThread "block-manager-slave-async-thread-pool-170" daemon [_thread_blocked, id=32345, stack(0x00007f75ef075000,0x00007f75ef176000)]
+  0x00007f769c00c800 JavaThread "block-manager-slave-async-thread-pool-169" daemon [_thread_blocked, id=32344, stack(0x00007f75f42e5000,0x00007f75f43e6000)]
+  0x00007f769000e800 JavaThread "block-manager-ask-thread-pool-164" daemon [_thread_blocked, id=32343, stack(0x00007f75ea32e000,0x00007f75ea42f000)]
+  0x00007f7634012000 JavaThread "block-manager-ask-thread-pool-163" daemon [_thread_blocked, id=32342, stack(0x00007f75eb33e000,0x00007f75eb43f000)]
+  0x00007f7628031800 JavaThread "block-manager-ask-thread-pool-162" daemon [_thread_blocked, id=32341, stack(0x00007f75f43e6000,0x00007f75f44e7000)]
+  0x00007f762002a000 JavaThread "block-manager-slave-async-thread-pool-168" daemon [_thread_blocked, id=32340, stack(0x00007f75eb540000,0x00007f75eb641000)]
+  0x00007f7620028000 JavaThread "block-manager-slave-async-thread-pool-167" daemon [_thread_blocked, id=32339, stack(0x00007f75e9c29000,0x00007f75e9d2a000)]
+  0x00007f7680006000 JavaThread "block-manager-slave-async-thread-pool-166" daemon [_thread_blocked, id=32338, stack(0x00007f75ea530000,0x00007f75ea631000)]
+  0x00007f767803f800 JavaThread "block-manager-ask-thread-pool-161" daemon [_thread_blocked, id=32337, stack(0x00007f75f0489000,0x00007f75f058a000)]
+  0x00007f767c004000 JavaThread "block-manager-ask-thread-pool-160" daemon [_thread_blocked, id=31649, stack(0x00007f75ec148000,0x00007f75ec249000)]
+  0x00007f7660007000 JavaThread "block-manager-ask-thread-pool-159" daemon [_thread_blocked, id=31645, stack(0x00007f75eae39000,0x00007f75eaf3a000)]
+  0x00007f7658009000 JavaThread "block-manager-slave-async-thread-pool-165" daemon [_thread_blocked, id=31639, stack(0x00007f75f39dc000,0x00007f75f3add000)]
+  0x00007f7658008000 JavaThread "block-manager-slave-async-thread-pool-164" daemon [_thread_blocked, id=31638, stack(0x00007f75ee96e000,0x00007f75eea6f000)]
+  0x00007f769c00e800 JavaThread "block-manager-slave-async-thread-pool-163" daemon [_thread_blocked, id=31637, stack(0x00007f75f3fe2000,0x00007f75f40e3000)]
+  0x00007f768c03f000 JavaThread "block-manager-ask-thread-pool-158" daemon [_thread_blocked, id=31636, stack(0x00007f75eb43f000,0x00007f75eb540000)]
+  0x00007f7640004000 JavaThread "block-manager-ask-thread-pool-157" daemon [_thread_blocked, id=31632, stack(0x00007f75eb641000,0x00007f75eb742000)]
+  0x00007f76240c0000 JavaThread "block-manager-ask-thread-pool-156" daemon [_thread_blocked, id=31631, stack(0x00007f75f70f3000,0x00007f75f71f4000)]
+  0x00007f761c010000 JavaThread "block-manager-slave-async-thread-pool-162" daemon [_thread_blocked, id=31622, stack(0x00007f75eb942000,0x00007f75eba43000)]
+  0x00007f761c040800 JavaThread "block-manager-slave-async-thread-pool-161" daemon [_thread_blocked, id=31621, stack(0x00007f75eee73000,0x00007f75eef74000)]
+  0x00007f768c032000 JavaThread "block-manager-slave-async-thread-pool-160" daemon [_thread_blocked, id=31620, stack(0x00007f75eba43000,0x00007f75ebb44000)]
+  0x00007f7690012800 JavaThread "block-manager-ask-thread-pool-155" daemon [_thread_blocked, id=31617, stack(0x00007f75ec249000,0x00007f75ec34a000)]
+  0x00000000011b9800 JavaThread "block-manager-ask-thread-pool-154" daemon [_thread_blocked, id=31613, stack(0x00007f75f67ec000,0x00007f75f68ed000)]
+  0x00007f7708017000 JavaThread "block-manager-ask-thread-pool-153" daemon [_thread_blocked, id=31612, stack(0x00007f75eef74000,0x00007f75ef075000)]
+  0x00007f7700015000 JavaThread "block-manager-ask-thread-pool-152" daemon [_thread_blocked, id=31611, stack(0x00007f75ef77c000,0x00007f75ef87d000)]
+  0x00007f76b88ec800 JavaThread "block-manager-slave-async-thread-pool-159" daemon [_thread_blocked, id=31609, stack(0x00007f75ef277000,0x00007f75ef378000)]
+  0x00007f76b88eb800 JavaThread "block-manager-slave-async-thread-pool-157" daemon [_thread_blocked, id=31608, stack(0x00007f75ef479000,0x00007f75ef57a000)]
+  0x00007f76c5236800 JavaThread "block-manager-slave-async-thread-pool-158" daemon [_thread_blocked, id=31607, stack(0x00007f75ef57a000,0x00007f75ef67b000)]
+  0x00007f76c5235800 JavaThread "block-manager-slave-async-thread-pool-156" daemon [_thread_blocked, id=31606, stack(0x00007f75ef67b000,0x00007f75ef77c000)]
+  0x00007f767802e800 JavaThread "block-manager-ask-thread-pool-151" daemon [_thread_blocked, id=31598, stack(0x00007f75f44e7000,0x00007f75f45e8000)]
+  0x00007f7688066800 JavaThread "block-manager-slave-async-thread-pool-155" daemon [_thread_blocked, id=31597, stack(0x00007f75f41e4000,0x00007f75f42e5000)]
+  0x00007f7688012000 JavaThread "block-manager-slave-async-thread-pool-154" daemon [_thread_blocked, id=31596, stack(0x00007f75f6bee000,0x00007f75f6cef000)]
+  0x00007f768c01b000 JavaThread "block-manager-ask-thread-pool-150" daemon [_thread_blocked, id=31595, stack(0x00007f75efd82000,0x00007f75efe83000)]
+  0x00007f76ac002000 JavaThread "block-manager-ask-thread-pool-149" daemon [_thread_blocked, id=31592, stack(0x00007f75f6df0000,0x00007f75f6ef1000)]
+  0x00007f769c014800 JavaThread "block-manager-ask-thread-pool-148" daemon [_thread_blocked, id=31591, stack(0x00007f75eff84000,0x00007f75f0085000)]
+  0x00007f768801d800 JavaThread "block-manager-slave-async-thread-pool-153" daemon [_thread_blocked, id=31588, stack(0x00007f75ef87d000,0x00007f75ef97e000)]
+  0x00007f7688027000 JavaThread "block-manager-slave-async-thread-pool-152" daemon [_thread_blocked, id=31587, stack(0x00007f75f6ef1000,0x00007f75f6ff2000)]
+  0x00007f7690017000 JavaThread "block-manager-ask-thread-pool-147" daemon [_thread_blocked, id=31586, stack(0x00007f75ef97e000,0x00007f75efa7f000)]
+  0x00007f7688017800 JavaThread "block-manager-slave-async-thread-pool-151" daemon [_thread_blocked, id=31585, stack(0x00007f75efa7f000,0x00007f75efb80000)]
+  0x00007f7668006000 JavaThread "block-manager-ask-thread-pool-146" daemon [_thread_blocked, id=31578, stack(0x00007f75f0085000,0x00007f75f0186000)]
+  0x00007f7660005800 JavaThread "block-manager-ask-thread-pool-145" daemon [_thread_blocked, id=31577, stack(0x00007f75f0186000,0x00007f75f0287000)]
+  0x00007f7654152000 JavaThread "block-manager-slave-async-thread-pool-150" daemon [_thread_blocked, id=31576, stack(0x00007f75f0287000,0x00007f75f0388000)]
+  0x00007f7654151000 JavaThread "block-manager-slave-async-thread-pool-149" daemon [_thread_blocked, id=31573, stack(0x00007f75f0388000,0x00007f75f0489000)]
+  0x00007f7684039000 JavaThread "block-manager-slave-async-thread-pool-148" daemon [_thread_blocked, id=31570, stack(0x00007f75f058a000,0x00007f75f068b000)]
+  0x00007f769c018800 JavaThread "block-manager-ask-thread-pool-144" daemon [_thread_blocked, id=31569, stack(0x00007f75f068b000,0x00007f75f078c000)]
+  0x00007f7640001800 JavaThread "block-manager-ask-thread-pool-143" daemon [_thread_blocked, id=31568, stack(0x00007f75f078c000,0x00007f75f088d000)]
+  0x00007f764400c000 JavaThread "block-manager-ask-thread-pool-142" daemon [_thread_blocked, id=31567, stack(0x00007f75f088d000,0x00007f75f098e000)]
+  0x00007f762c027800 JavaThread "block-manager-slave-async-thread-pool-147" daemon [_thread_blocked, id=31566, stack(0x00007f75f098e000,0x00007f75f0a8f000)]
+  0x00007f762c013800 JavaThread "block-manager-slave-async-thread-pool-146" daemon [_thread_blocked, id=31565, stack(0x00007f75f0a8f000,0x00007f75f0b90000)]
+  0x00007f7694021000 JavaThread "block-manager-slave-async-thread-pool-145" daemon [_thread_blocked, id=31560, stack(0x00007f75f1196000,0x00007f75f1297000)]
+  0x00007f7688041000 JavaThread "block-manager-ask-thread-pool-141" daemon [_thread_blocked, id=31558, stack(0x00007f75f0d92000,0x00007f75f0e93000)]
+  0x00007f76180c1800 JavaThread "block-manager-ask-thread-pool-140" daemon [_thread_blocked, id=31557, stack(0x00007f75f0e93000,0x00007f75f0f94000)]
+  0x00007f760c010000 JavaThread "block-manager-ask-thread-pool-139" daemon [_thread_blocked, id=31556, stack(0x00007f75f1cbf000,0x00007f75f1dc0000)]
+  0x00007f75f800a000 JavaThread "block-manager-slave-async-thread-pool-144" daemon [_thread_blocked, id=31550, stack(0x00007f75f1297000,0x00007f75f1398000)]
+  0x00007f75f800b800 JavaThread "block-manager-slave-async-thread-pool-143" daemon [_thread_blocked, id=31549, stack(0x00007f75f1398000,0x00007f75f1499000)]
+  0x00007f768000d800 JavaThread "block-manager-ask-thread-pool-138" daemon [_thread_blocked, id=31548, stack(0x00007f75f1499000,0x00007f75f159a000)]
+  0x00007f769000d000 JavaThread "block-manager-slave-async-thread-pool-142" daemon [_thread_blocked, id=31547, stack(0x00007f75f159a000,0x00007f75f169b000)]
+  0x00007f7718016800 JavaThread "block-manager-ask-thread-pool-137" daemon [_thread_blocked, id=31544, stack(0x00007f75f22c5000,0x00007f75f23c6000)]
+  0x00007f7710015000 JavaThread "block-manager-ask-thread-pool-136" daemon [_thread_blocked, id=31542, stack(0x00007f75f1ec1000,0x00007f75f1fc2000)]
+  0x00007f76b901f000 JavaThread "block-manager-slave-async-thread-pool-141" daemon [_thread_blocked, id=31540, stack(0x00007f75f20c3000,0x00007f75f21c4000)]
+  0x00007f76b901e000 JavaThread "block-manager-slave-async-thread-pool-140" daemon [_thread_blocked, id=31539, stack(0x00007f75f179c000,0x00007f75f189d000)]
+  0x00007f7680011800 JavaThread "block-manager-slave-async-thread-pool-139" daemon [_thread_blocked, id=31530, stack(0x00007f75f2acd000,0x00007f75f2bce000)]
+  0x00007f7684037000 JavaThread "block-manager-ask-thread-pool-135" daemon [_thread_blocked, id=31529, stack(0x00007f75f74f7000,0x00007f75f75f8000)]
+  0x00007f76984d4000 JavaThread "block-manager-ask-thread-pool-134" daemon [_thread_blocked, id=31526, stack(0x00007f75f23c6000,0x00007f75f24c7000)]
+  0x00007f769c013000 JavaThread "block-manager-ask-thread-pool-133" daemon [_thread_blocked, id=31523, stack(0x00007f75f25c8000,0x00007f75f26c9000)]
+  0x00007f768c040800 JavaThread "block-manager-slave-async-thread-pool-138" daemon [_thread_blocked, id=31522, stack(0x00007f75f26c9000,0x00007f75f27ca000)]
+  0x00007f768c01f800 JavaThread "block-manager-slave-async-thread-pool-137" daemon [_thread_blocked, id=31521, stack(0x00007f75f27ca000,0x00007f75f28cb000)]
+  0x00007f7690009000 JavaThread "block-manager-slave-async-thread-pool-136" daemon [_thread_blocked, id=31518, stack(0x00007f75f28cb000,0x00007f75f29cc000)]
+  0x00007f7688067800 JavaThread "block-manager-ask-thread-pool-132" daemon [_thread_blocked, id=31513, stack(0x00007f75f33d6000,0x00007f75f34d7000)]
+  0x00007f7668002000 JavaThread "block-manager-ask-thread-pool-131" daemon [_thread_blocked, id=31512, stack(0x00007f75f3add000,0x00007f75f3bde000)]
+  0x00007f766c001800 JavaThread "block-manager-ask-thread-pool-130" daemon [_thread_blocked, id=31511, stack(0x00007f75f2ccf000,0x00007f75f2dd0000)]
+  0x00007f7658001800 JavaThread "block-manager-slave-async-thread-pool-135" daemon [_thread_blocked, id=31510, stack(0x00007f75f2dd0000,0x00007f75f2ed1000)]
+  0x00007f7658005800 JavaThread "block-manager-slave-async-thread-pool-134" daemon [_thread_blocked, id=31509, stack(0x00007f75f2ed1000,0x00007f75f2fd2000)]
+  0x00007f768402d800 JavaThread "block-manager-slave-async-thread-pool-133" daemon [_thread_blocked, id=31507, stack(0x00007f75f66eb000,0x00007f75f67ec000)]
+  0x00007f7678027800 JavaThread "block-manager-ask-thread-pool-129" daemon [_thread_blocked, id=31506, stack(0x00007f75f30d3000,0x00007f75f31d4000)]
+  0x00007f765c004000 JavaThread "block-manager-slave-async-thread-pool-132" daemon [_thread_blocked, id=31430, stack(0x00007f75f76f9000,0x00007f75f77fa000)]
+  0x00007f765c001800 JavaThread "block-manager-slave-async-thread-pool-131" daemon [_thread_blocked, id=31429, stack(0x00007f75f7eff000,0x00007f75f8000000)]
+  0x00007f7690011000 JavaThread "block-manager-slave-async-thread-pool-130" daemon [_thread_blocked, id=31428, stack(0x00007f75fc1d3000,0x00007f75fc2d4000)]
+  0x00007f7654006000 JavaThread "threadDeathWatcher-7-1" daemon [_thread_blocked, id=31427, stack(0x00007f75fc6d8000,0x00007f75fc7d9000)]
+  0x00007f761c052000 JavaThread "shuffle-server-5-2" daemon [_thread_in_native, id=31426, stack(0x00007f75fd3e3000,0x00007f75fd4e4000)]
+  0x00007f763800e000 JavaThread "shuffle-client-4-1" daemon [_thread_in_native, id=31425, stack(0x00007f75ef378000,0x00007f75ef479000)]
+  0x00007f7698834800 JavaThread "broadcast-exchange-7" daemon [_thread_blocked, id=31424, stack(0x00007f75ef176000,0x00007f75ef277000)]
+  0x00007f7644003800 JavaThread "block-manager-ask-thread-pool-128" daemon [_thread_blocked, id=31423, stack(0x00007f75eed72000,0x00007f75eee73000)]
+  0x00007f7638003800 JavaThread "block-manager-ask-thread-pool-127" daemon [_thread_blocked, id=31422, stack(0x00007f75ee56a000,0x00007f75ee66b000)]
+  0x00007f7630009000 JavaThread "block-manager-slave-async-thread-pool-129" daemon [_thread_blocked, id=31421, stack(0x00007f75ee368000,0x00007f75ee469000)]
+  0x00007f7630006000 JavaThread "block-manager-slave-async-thread-pool-128" daemon [_thread_blocked, id=31420, stack(0x00007f75eec71000,0x00007f75eed72000)]
+  0x00007f767802b800 JavaThread "block-manager-slave-async-thread-pool-127" daemon [_thread_blocked, id=31419, stack(0x00007f75eea6f000,0x00007f75eeb70000)]
+  0x00007f7684031800 JavaThread "block-manager-ask-thread-pool-126" daemon [_thread_blocked, id=31418, stack(0x00007f75ee76c000,0x00007f75ee86d000)]
+  0x00007f762c025800 JavaThread "block-manager-ask-thread-pool-125" daemon [_thread_blocked, id=31417, stack(0x00007f75ed55c000,0x00007f75ed65d000)]
+  0x00007f762407b000 JavaThread "block-manager-slave-async-thread-pool-126" daemon [_thread_blocked, id=31416, stack(0x00007f75ee469000,0x00007f75ee56a000)]
+  0x00007f762408e800 JavaThread "block-manager-slave-async-thread-pool-125" daemon [_thread_blocked, id=31415, stack(0x00007f75ee065000,0x00007f75ee166000)]
+  0x00007f768c002000 JavaThread "block-manager-slave-async-thread-pool-124" daemon [_thread_blocked, id=31414, stack(0x00007f75ecf56000,0x00007f75ed057000)]
+  0x00007f768000c000 JavaThread "block-manager-ask-thread-pool-124" daemon [_thread_blocked, id=31413, stack(0x00007f75edf64000,0x00007f75ee065000)]
+  0x00007f7610005800 JavaThread "block-manager-ask-thread-pool-123" daemon [_thread_blocked, id=31412, stack(0x00007f75eda5f000,0x00007f75edb60000)]
+  0x00007f7614001800 JavaThread "block-manager-ask-thread-pool-122" daemon [_thread_blocked, id=31411, stack(0x00007f75ec74e000,0x00007f75ec84f000)]
+  0x00007f7600009800 JavaThread "block-manager-slave-async-thread-pool-123" daemon [_thread_blocked, id=31410, stack(0x00007f75ed75e000,0x00007f75ed85f000)]
+  0x00007f7600006800 JavaThread "block-manager-slave-async-thread-pool-122" daemon [_thread_blocked, id=31409, stack(0x00007f75ed259000,0x00007f75ed35a000)]
+  0x00007f7680008000 JavaThread "block-manager-ask-thread-pool-121" daemon [_thread_blocked, id=31408, stack(0x00007f75fdeee000,0x00007f75fdfef000)]
+  0x00007f7684033000 JavaThread "block-manager-slave-async-thread-pool-121" daemon [_thread_blocked, id=31407, stack(0x00007f75ec950000,0x00007f75eca51000)]
+  0x00007f75f8005000 JavaThread "block-manager-ask-thread-pool-120" daemon [_thread_blocked, id=31406, stack(0x00007f75ed158000,0x00007f75ed259000)]
+  0x000000000119c800 JavaThread "block-manager-ask-thread-pool-119" daemon [_thread_blocked, id=31405, stack(0x00007f75ecc53000,0x00007f75ecd54000)]
+  0x00007f7700013800 JavaThread "block-manager-slave-async-thread-pool-120" daemon [_thread_blocked, id=31404, stack(0x00007f75fccde000,0x00007f75fcddf000)]
+  0x00007f7700013000 JavaThread "block-manager-slave-async-thread-pool-119" daemon [_thread_blocked, id=31403, stack(0x00007f75ecb52000,0x00007f75ecc53000)]
+  0x00007f768402c000 JavaThread "block-manager-ask-thread-pool-118" daemon [_thread_blocked, id=31402, stack(0x00007f75fcadc000,0x00007f75fcbdd000)]
+  0x00007f769c009800 JavaThread "block-manager-slave-async-thread-pool-118" daemon [_thread_blocked, id=31401, stack(0x00007f75ec44b000,0x00007f75ec54c000)]
+  0x00007f770800a800 JavaThread "block-manager-ask-thread-pool-117" daemon [_thread_blocked, id=31400, stack(0x00007f75ec54c000,0x00007f75ec64d000)]
+  0x00007f7710010000 JavaThread "block-manager-ask-thread-pool-116" daemon [_thread_blocked, id=31399, stack(0x00007f75fc4d6000,0x00007f75fc5d7000)]
+  0x00007f76f400f000 JavaThread "block-manager-slave-async-thread-pool-117" daemon [_thread_blocked, id=31398, stack(0x00007f75fdaea000,0x00007f75fdbeb000)]
+  0x00007f76f4017000 JavaThread "block-manager-slave-async-thread-pool-116" daemon [_thread_blocked, id=31397, stack(0x00007f75fcddf000,0x00007f75fcee0000)]
+  0x00007f7690008000 JavaThread "block-manager-ask-thread-pool-115" daemon [_thread_blocked, id=31396, stack(0x00007f75f7dfe000,0x00007f75f7eff000)]
+  0x00007f769c011000 JavaThread "block-manager-slave-async-thread-pool-115" daemon [_thread_blocked, id=31395, stack(0x00007f75fc8da000,0x00007f75fc9db000)]
+  0x00007f769882d800 JavaThread "broadcast-exchange-6" daemon [_thread_blocked, id=31394, stack(0x00007f75fc7d9000,0x00007f75fc8da000)]
+  0x00007f76986f2000 JavaThread "broadcast-exchange-5" daemon [_thread_blocked, id=31393, stack(0x00007f75f73f6000,0x00007f75f74f7000)]
+  0x00007f76cc006000 JavaThread "block-manager-ask-thread-pool-114" daemon [_thread_blocked, id=31392, stack(0x00007f75fc3d5000,0x00007f75fc4d6000)]
+  0x00007f76c0c4a800 JavaThread "block-manager-ask-thread-pool-113" daemon [_thread_blocked, id=31391, stack(0x00007f75fc2d4000,0x00007f75fc3d5000)]
+  0x00007f76bce5c800 JavaThread "block-manager-slave-async-thread-pool-114" daemon [_thread_blocked, id=31390, stack(0x00007f75f65ea000,0x00007f75f66eb000)]
+  0x00007f76bc253800 JavaThread "block-manager-slave-async-thread-pool-113" daemon [_thread_blocked, id=31389, stack(0x00007f75fc0d2000,0x00007f75fc1d3000)]
+  0x00007f7684035800 JavaThread "block-manager-ask-thread-pool-112" daemon [_thread_blocked, id=31388, stack(0x00007f75f72f5000,0x00007f75f73f6000)]
+  0x00007f769401f800 JavaThread "block-manager-slave-async-thread-pool-112" daemon [_thread_blocked, id=31387, stack(0x00007f75f189d000,0x00007f75f199e000)]
+  0x00007f768400b000 JavaThread "Executor task launch worker for task 3546" daemon [_thread_blocked, id=30532, stack(0x00007f75eb13c000,0x00007f75eb23d000)]
+  0x00007f76180f1000 JavaThread "stderr reader for python3" daemon [_thread_in_native, id=30489, stack(0x00007f75ebb44000,0x00007f75ebc45000)]
+  0x00007f76180f0000 JavaThread "stdout reader for python3" daemon [_thread_in_native, id=30488, stack(0x00007f75ebc45000,0x00007f75ebd46000)]
+  0x00007f76180e6000 JavaThread "Idle Worker Monitor for python3" daemon [_thread_blocked, id=30478, stack(0x00007f75ebd46000,0x00007f75ebe47000)]
+  0x00007f7688008800 JavaThread "Executor task launch worker for task 3556" daemon [_thread_blocked, id=30089, stack(0x00007f75f77fa000,0x00007f75f78fb000)]
+  0x00007f7680004000 JavaThread "Executor task launch worker for task 3182" daemon [_thread_blocked, id=30088, stack(0x00007f75f78fb000,0x00007f75f79fc000)]
+  0x00007f7688005000 JavaThread "task-result-getter-3" daemon [_thread_blocked, id=30064, stack(0x00007f75fd0e0000,0x00007f75fd1e1000)]
+  0x00007f769400d800 JavaThread "task-result-getter-2" daemon [_thread_blocked, id=30063, stack(0x00007f75fd1e1000,0x00007f75fd2e2000)]
+  0x00007f7690004000 JavaThread "task-result-getter-1" daemon [_thread_blocked, id=30062, stack(0x00007f75fd2e2000,0x00007f75fd3e3000)]
+  0x00007f7678026000 JavaThread "Executor task launch worker for task 3560" daemon [_thread_blocked, id=30059, stack(0x00007f75fd4e4000,0x00007f75fd5e5000)]
+  0x00007f7678024000 JavaThread "Executor task launch worker for task 3555" daemon [_thread_blocked, id=30058, stack(0x00007f75fd5e5000,0x00007f75fd6e6000)]
+  0x00007f7678023000 JavaThread "Executor task launch worker for task 3557" daemon [_thread_blocked, id=30057, stack(0x00007f75fd6e6000,0x00007f75fd7e7000)]
+  0x00007f7678016000 JavaThread "Executor task launch worker for task 3559" daemon [_thread_blocked, id=30056, stack(0x00007f75fd7e7000,0x00007f75fd8e8000)]
+  0x00007f7678014800 JavaThread "Executor task launch worker for task 3558" daemon [_thread_blocked, id=30055, stack(0x00007f75fd8e8000,0x00007f75fd9e9000)]
+  0x00007f7678013000 JavaThread "Executor task launch worker for task 3554" daemon [_thread_blocked, id=30054, stack(0x00007f75fd9e9000,0x00007f75fdaea000)]
+  0x00007f7690002800 JavaThread "task-result-getter-0" daemon [_thread_blocked, id=30047, stack(0x00007f75fe0f0000,0x00007f75fe1f1000)]
+  0x00007f767801b000 JavaThread "Executor task launch worker for task 3553" daemon [_thread_blocked, id=30046, stack(0x00007f75fe3f1000,0x00007f75fe4f2000)]
+  0x00007f769913c800 JavaThread "org.apache.hadoop.fs.FileSystem$Statistics$StatisticsDataReferenceCleaner" daemon [_thread_blocked, id=30045, stack(0x00007f75ffcff000,0x00007f75ffe00000)]
+  0x00007f7699030800 JavaThread "spark-listener-group-streams" daemon [_thread_blocked, id=30043, stack(0x00007f76a4008000,0x00007f76a4109000)]
+  0x00007f760806f800 JavaThread "element-tracking-store-worker" daemon [_thread_blocked, id=30042, stack(0x00007f76a4709000,0x00007f76a480a000)]
+  0x00007f7698c2e000 JavaThread "spark-listener-group-executorManagement" daemon [_thread_blocked, id=30040, stack(0x00007f76a480a000,0x00007f76a490b000)]
+  0x00007f7698c2c800 JavaThread "spark-listener-group-appStatus" daemon [_thread_blocked, id=30039, stack(0x00007f76a490b000,0x00007f76a4a0c000)]
+  0x00007f7698c28800 JavaThread "context-cleaner-periodic-gc" daemon [_thread_blocked, id=30038, stack(0x00007f76a4caa000,0x00007f76a4dab000)]
+  0x00007f7698c27000 JavaThread "Spark Context Cleaner" daemon [_thread_blocked, id=30037, stack(0x00007f76a4dab000,0x00007f76a4eac000)]
+  0x00007f7698951800 JavaThread "shuffle-server-5-1" daemon [_thread_blocked, id=30036, stack(0x00007f76a51cc000,0x00007f76a52cd000)]
+  0x00007f769886d000 JavaThread "driver-heartbeater" daemon [_thread_blocked, id=30035, stack(0x00007f76a52cd000,0x00007f76a53ce000)]
+  0x00007f769881d000 JavaThread "dag-scheduler-event-loop" daemon [_thread_blocked, id=30034, stack(0x00007f76a50ac000,0x00007f76a51ad000)]
+  0x00007f762800d800 JavaThread "netty-rpc-env-timeout" daemon [_thread_blocked, id=30033, stack(0x00007f76a53ce000,0x00007f76a54cf000)]
+  0x00007f7698793000 JavaThread "Timer-0" daemon [_thread_blocked, id=30032, stack(0x00007f76a54cf000,0x00007f76a55d0000)]
+  0x00007f7680002000 JavaThread "heartbeat-receiver-event-loop-thread" daemon [_thread_blocked, id=30031, stack(0x00007f76a55d0000,0x00007f76a56d1000)]
+  0x00007f7698636800 JavaThread "SparkUI-44" daemon [_thread_blocked, id=30030, stack(0x00007f76a56d1000,0x00007f76a57d2000)]
+  0x00007f7698634800 JavaThread "SparkUI-43" daemon [_thread_blocked, id=30029, stack(0x00007f76a57d2000,0x00007f76a58d3000)]
+  0x00007f7698633000 JavaThread "SparkUI-42" daemon [_thread_blocked, id=30028, stack(0x00007f76a58d3000,0x00007f76a59d4000)]
+  0x00007f7698631000 JavaThread "SparkUI-41-acceptor-0@51f32c9d-Spark@5f34d8d3{HTTP/1.1,[http/1.1]}{0.0.0.0:4043}" daemon [_thread_in_native, id=30027, stack(0x00007f76a59d4000,0x00007f76a5ad5000)]
+  0x00007f769862f800 JavaThread "SparkUI-40" daemon [_thread_in_native, id=30026, stack(0x00007f76a5ad5000,0x00007f76a5bd6000)]
+  0x00007f769862e000 JavaThread "SparkUI-39" daemon [_thread_in_native, id=30025, stack(0x00007f76a5bd6000,0x00007f76a5cd7000)]
+  0x00007f769862c800 JavaThread "SparkUI-38" daemon [_thread_in_native, id=30024, stack(0x00007f76a5cd7000,0x00007f76a5dd8000)]
+  0x00007f7698627800 JavaThread "SparkUI-37" daemon [_thread_in_native, id=30023, stack(0x00007f76a5dd8000,0x00007f76a5ed9000)]
+  0x00007f76983fb000 JavaThread "refresh progress" daemon [_thread_blocked, id=30022, stack(0x00007f76a60d9000,0x00007f76a61da000)]
+  0x00007f76983ee000 JavaThread "RemoteBlock-temp-file-clean-thread" daemon [_thread_blocked, id=30021, stack(0x00007f76a61da000,0x00007f76a62db000)]
+  0x00007f769839e800 JavaThread "map-output-dispatcher-7" daemon [_thread_blocked, id=30020, stack(0x00007f76a62db000,0x00007f76a63dc000)]
+  0x00007f769839d000 JavaThread "map-output-dispatcher-6" daemon [_thread_blocked, id=30019, stack(0x00007f76a63dc000,0x00007f76a64dd000)]
+  0x00007f769839b000 JavaThread "map-output-dispatcher-5" daemon [_thread_blocked, id=30018, stack(0x00007f76a64dd000,0x00007f76a65de000)]
+  0x00007f7698399800 JavaThread "map-output-dispatcher-4" daemon [_thread_blocked, id=30017, stack(0x00007f76a65de000,0x00007f76a66df000)]
+  0x00007f7698398000 JavaThread "map-output-dispatcher-3" daemon [_thread_blocked, id=30016, stack(0x00007f76a66df000,0x00007f76a67e0000)]
+  0x00007f7698396800 JavaThread "map-output-dispatcher-2" daemon [_thread_blocked, id=30015, stack(0x00007f76a67e0000,0x00007f76a68e1000)]
+  0x00007f7698394000 JavaThread "map-output-dispatcher-1" daemon [_thread_blocked, id=30014, stack(0x00007f76a68e1000,0x00007f76a69e2000)]
+  0x00007f769838e000 JavaThread "map-output-dispatcher-0" daemon [_thread_blocked, id=30013, stack(0x00007f76a69e2000,0x00007f76a6ae3000)]
+  0x00007f7698353800 JavaThread "rpc-server-3-1" daemon [_thread_blocked, id=30012, stack(0x00007f76a6ae3000,0x00007f76a6be4000)]
+  0x00007f76981bb000 JavaThread "dispatcher-event-loop-7" daemon [_thread_blocked, id=30011, stack(0x00007f76a6fe4000,0x00007f76a70e5000)]
+  0x00007f76981b9800 JavaThread "dispatcher-event-loop-6" daemon [_thread_blocked, id=30010, stack(0x00007f76a70e5000,0x00007f76a71e6000)]
+  0x00007f76981b7800 JavaThread "dispatcher-event-loop-5" daemon [_thread_blocked, id=30009, stack(0x00007f76a71e6000,0x00007f76a72e7000)]
+  0x00007f76981b6000 JavaThread "dispatcher-event-loop-4" daemon [_thread_blocked, id=30008, stack(0x00007f76a72e7000,0x00007f76a73e8000)]
+  0x00007f76981b4000 JavaThread "dispatcher-event-loop-3" daemon [_thread_blocked, id=30007, stack(0x00007f76a73e8000,0x00007f76a74e9000)]
+  0x00007f76981b2800 JavaThread "dispatcher-event-loop-2" daemon [_thread_blocked, id=30006, stack(0x00007f76a74e9000,0x00007f76a75ea000)]
+  0x00007f76981b0800 JavaThread "dispatcher-event-loop-1" daemon [_thread_blocked, id=30005, stack(0x00007f76a75ea000,0x00007f76a76eb000)]
+  0x00007f76981af800 JavaThread "dispatcher-event-loop-0" daemon [_thread_blocked, id=30004, stack(0x00007f76a76eb000,0x00007f76a77ec000)]
+  0x00007f76a0009000 JavaThread "Thread-4" [_thread_blocked, id=30003, stack(0x00007f76a79ec000,0x00007f76a7aed000)]
+  0x00007f773117e000 JavaThread "Thread-3" [_thread_in_native, id=30002, stack(0x00007f76a7cff000,0x00007f76a7e00000)]
+  0x00007f7731171000 JavaThread "pool-1-thread-1" [_thread_blocked, id=30001, stack(0x00007f76d4232000,0x00007f76d4333000)]
+  0x00007f77310e0800 JavaThread "process reaper" daemon [_thread_in_native, id=29999, stack(0x00007f76d4333000,0x00007f76d436c000)]
+  0x00007f77300dc000 JavaThread "Service Thread" daemon [_thread_blocked, id=29996, stack(0x00007f770449b000,0x00007f770459c000)]
+  0x00007f77300d0800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=29995, stack(0x00007f770459d000,0x00007f770469d000)]
+  0x00007f77300ce800 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=29994, stack(0x00007f770469e000,0x00007f770479e000)]
+  0x00007f77300cd000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=29993, stack(0x00007f770479f000,0x00007f770489f000)]
+  0x00007f77300ca000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=29992, stack(0x00007f77048a0000,0x00007f77049a0000)]
+  0x00007f77300c8800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=29991, stack(0x00007f77049a0000,0x00007f7704aa1000)]
+  0x00007f7730095000 JavaThread "Finalizer" daemon [_thread_blocked, id=29990, stack(0x00007f77055d3000,0x00007f77056d4000)]
+  0x00007f7730092800 JavaThread "Reference Handler" daemon [_thread_blocked, id=29989, stack(0x00007f77056d4000,0x00007f77057d5000)]
+  0x00007f7730012800 JavaThread "main" [_thread_in_native, id=29979, stack(0x00007f7737bc4000,0x00007f7737cc4000)]
+
+Other Threads:
+=>0x00007f7730089000 VMThread [stack: 0x00007f77057d6000,0x00007f77058d6000] [id=29988]
+  0x00007f77300e1000 WatcherThread [stack: 0x00007f770439b000,0x00007f770449b000] [id=29997]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007f773000ecc0] ExpandHeap_lock - owner thread: 0x00007f7730089000
+[0x00007f773000f340] Threads_lock - owner thread: 0x00007f7730089000
+[0x00007f773000f840] Heap_lock - owner thread: 0x00007f7678014800
+
+Heap:
+ PSYoungGen      total 4790784K, used 0K [0x0000000680000000, 0x00000007c0000000, 0x00000007c0000000)
+  eden space 4397056K, 0% used [0x0000000680000000,0x0000000680000000,0x000000078c600000)
+  from space 393728K, 0% used [0x000000078c600000,0x000000078c600000,0x00000007a4680000)
+  to   space 452096K, 0% used [0x00000007a4680000,0x00000007a4680000,0x00000007c0000000)
+ ParOldGen       total 1381888K, used 1299323K [0x0000000400000000, 0x0000000454580000, 0x0000000680000000)
+  object space 1381888K, 94% used [0x0000000400000000,0x000000044f4defe8,0x0000000454580000)
+ Metaspace       used 90724K, capacity 92826K, committed 93272K, reserved 1128448K
+  class space    used 13042K, capacity 13603K, committed 13696K, reserved 1048576K
+
+Card table byte_map: [0x00007f771f1ff000,0x00007f7721000000] byte_map_base: 0x00007f771d1ff000
+
+Marking Bits: (ParMarkBitMap*) 0x00007f773706fd40
+ Begin Bits: [0x00007f76d6000000, 0x00007f76e5000000)
+ End Bits:   [0x00007f76e5000000, 0x00007f76f4000000)
+
+Polling page: 0x00007f7737cdf000
+
+CodeCache: size=245760Kb used=56578Kb max_used=56589Kb free=189181Kb
+ bounds [0x00007f7721000000, 0x00007f77247a0000, 0x00007f7730000000]
+ total_blobs=16985 nmethods=16302 adapters=592
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 171.130 Thread 0x00007f77300d0800 21662       3       scala.collection.mutable.ArrayBuilder$ofFloat::result (40 bytes)
+Event: 171.130 Thread 0x00007f77300d0800 nmethod 21662 0x00007f7724790490 code [0x00007f7724790620, 0x00007f7724790b28]
+Event: 171.130 Thread 0x00007f77300d0800 21663       3       org.apache.spark.ml.recommendation.ALS$RatingBlock::<init> (91 bytes)
+Event: 171.137 Thread 0x00007f77300d0800 nmethod 21663 0x00007f772478f110 code [0x00007f772478f340, 0x00007f772478ffe8]
+Event: 171.915 Thread 0x00007f77300d0800 21664       3       scala.collection.immutable.StreamIterator::hasNext (11 bytes)
+Event: 171.927 Thread 0x00007f77300d0800 nmethod 21664 0x00007f7724798f10 code [0x00007f77247990c0, 0x00007f7724799578]
+Event: 171.927 Thread 0x00007f77300d0800 21665       1       org.apache.spark.ml.recommendation.ALS$$anonfun$partitionRatings$1$$anonfun$apply$10::org$apache$spark$ml$recommendation$ALS$$anonfun$$anonfun$$$outer (5 bytes)
+Event: 171.927 Thread 0x00007f77300d0800 nmethod 21665 0x00007f772478ee50 code [0x00007f772478efa0, 0x00007f772478f0b0]
+Event: 171.993 Thread 0x00007f77300ce800 21666       4       java.lang.Long::equals (30 bytes)
+Event: 172.036 Thread 0x00007f77300ce800 nmethod 21666 0x00007f772478eb50 code [0x00007f772478eca0, 0x00007f772478ed58]
+
+GC Heap History (10 events):
+Event: 161.239 GC heap after
+Heap after GC invocations=89 (full 6):
+ PSYoungGen      total 4799488K, used 92093K [0x0000000680000000, 0x00000007c0000000, 0x00000007c0000000)
+  eden space 4356096K, 0% used [0x0000000680000000,0x0000000680000000,0x0000000789e00000)
+  from space 443392K, 20% used [0x0000000789e00000,0x000000078f7ef6a0,0x00000007a4f00000)
+  to   space 436224K, 0% used [0x00000007a5600000,0x00000007a5600000,0x00000007c0000000)
+ ParOldGen       total 1381888K, used 1086324K [0x0000000400000000, 0x0000000454580000, 0x0000000680000000)
+  object space 1381888K, 78% used [0x0000000400000000,0x00000004424dd318,0x0000000454580000)
+ Metaspace       used 89096K, capacity 91172K, committed 91480K, reserved 1128448K
+  class space    used 12781K, capacity 13344K, committed 13440K, reserved 1048576K
+}
+Event: 162.019 GC heap before
+{Heap before GC invocations=90 (full 6):
+ PSYoungGen      total 4799488K, used 4448189K [0x0000000680000000, 0x00000007c0000000, 0x00000007c0000000)
+  eden space 4356096K, 100% used [0x0000000680000000,0x0000000789e00000,0x0000000789e00000)
+  from space 443392K, 20% used [0x0000000789e00000,0x000000078f7ef6a0,0x00000007a4f00000)
+  to   space 436224K, 0% used [0x00000007a5600000,0x00000007a5600000,0x00000007c0000000)
+ ParOldGen       total 1381888K, used 1086324K [0x0000000400000000, 0x0000000454580000, 0x0000000680000000)
+  object space 1381888K, 78% used [0x0000000400000000,0x00000004424dd318,0x0000000454580000)
+ Metaspace       used 89096K, capacity 91172K, committed 91480K, reserved 1128448K
+  class space    used 12781K, capacity 13344K, committed 13440K, reserved 1048576K
+Event: 162.383 GC heap after
+Heap after GC invocations=90 (full 6):
+ PSYoungGen      total 4773888K, used 228029K [0x0000000680000000, 0x00000007be700000, 0x00000007c0000000)
+  eden space 4363264K, 0% used [0x0000000680000000,0x0000000680000000,0x000000078a500000)
+  from space 410624K, 55% used [0x00000007a5600000,0x00000007b34af7d0,0x00000007be700000)
+  to   space 427008K, 0% used [0x000000078a500000,0x000000078a500000,0x00000007a4600000)
+ ParOldGen       total 1381888K, used 1152420K [0x0000000400000000, 0x0000000454580000, 0x0000000680000000)
+  object space 1381888K, 83% used [0x0000000400000000,0x0000000446569338,0x0000000454580000)
+ Metaspace       used 89096K, capacity 91172K, committed 91480K, reserved 1128448K
+  class space    used 12781K, capacity 13344K, committed 13440K, reserved 1048576K
+}
+Event: 166.666 GC heap before
+{Heap before GC invocations=91 (full 6):
+ PSYoungGen      total 4773888K, used 4591293K [0x0000000680000000, 0x00000007be700000, 0x00000007c0000000)
+  eden space 4363264K, 100% used [0x0000000680000000,0x000000078a500000,0x000000078a500000)
+  from space 410624K, 55% used [0x00000007a5600000,0x00000007b34af7d0,0x00000007be700000)
+  to   space 427008K, 0% used [0x000000078a500000,0x000000078a500000,0x00000007a4600000)
+ ParOldGen       total 1381888K, used 1152420K [0x0000000400000000, 0x0000000454580000, 0x0000000680000000)
+  object space 1381888K, 83% used [0x0000000400000000,0x0000000446569338,0x0000000454580000)
+ Metaspace       used 90235K, capacity 92428K, committed 92760K, reserved 1128448K
+  class space    used 12973K, capacity 13595K, committed 13696K, reserved 1048576K
+Event: 166.719 GC heap after
+Heap after GC invocations=91 (full 6):
+ PSYoungGen      total 4790272K, used 141599K [0x0000000680000000, 0x00000007bf100000, 0x00000007c0000000)
+  eden space 4363264K, 0% used [0x0000000680000000,0x0000000680000000,0x000000078a500000)
+  from space 427008K, 33% used [0x000000078a500000,0x0000000792f47d88,0x00000007a4600000)
+  to   space 411136K, 0% used [0x00000007a5f80000,0x00000007a5f80000,0x00000007bf100000)
+ ParOldGen       total 1381888K, used 1185908K [0x0000000400000000, 0x0000000454580000, 0x0000000680000000)
+  object space 1381888K, 85% used [0x0000000400000000,0x000000044861d358,0x0000000454580000)
+ Metaspace       used 90235K, capacity 92428K, committed 92760K, reserved 1128448K
+  class space    used 12973K, capacity 13595K, committed 13696K, reserved 1048576K
+}
+Event: 171.834 GC heap before
+{Heap before GC invocations=92 (full 6):
+ PSYoungGen      total 4790272K, used 4504863K [0x0000000680000000, 0x00000007bf100000, 0x00000007c0000000)
+  eden space 4363264K, 100% used [0x0000000680000000,0x000000078a500000,0x000000078a500000)
+  from space 427008K, 33% used [0x000000078a500000,0x0000000792f47d88,0x00000007a4600000)
+  to   space 411136K, 0% used [0x00000007a5f80000,0x00000007a5f80000,0x00000007bf100000)
+ ParOldGen       total 1381888K, used 1185908K [0x0000000400000000, 0x0000000454580000, 0x0000000680000000)
+  object space 1381888K, 85% used [0x0000000400000000,0x000000044861d358,0x0000000454580000)
+ Metaspace       used 90755K, capacity 92962K, committed 93016K, reserved 1128448K
+  class space    used 13049K, capacity 13655K, committed 13696K, reserved 1048576K
+Event: 171.888 GC heap after
+Heap after GC invocations=92 (full 6):
+ PSYoungGen      total 4808192K, used 266894K [0x0000000680000000, 0x00000007c0000000, 0x00000007c0000000)
+  eden space 4397056K, 0% used [0x0000000680000000,0x0000000680000000,0x000000078c600000)
+  from space 411136K, 64% used [0x00000007a5f80000,0x00000007b6423a88,0x00000007bf100000)
+  to   space 419328K, 0% used [0x000000078c600000,0x000000078c600000,0x00000007a5f80000)
+ ParOldGen       total 1381888K, used 1188141K [0x0000000400000000, 0x0000000454580000, 0x0000000680000000)
+  object space 1381888K, 85% used [0x0000000400000000,0x000000044884b6f0,0x0000000454580000)
+ Metaspace       used 90755K, capacity 92962K, committed 93016K, reserved 1128448K
+  class space    used 13049K, capacity 13655K, committed 13696K, reserved 1048576K
+}
+Event: 173.703 GC heap before
+{Heap before GC invocations=93 (full 6):
+ PSYoungGen      total 4808192K, used 4663950K [0x0000000680000000, 0x00000007c0000000, 0x00000007c0000000)
+  eden space 4397056K, 100% used [0x0000000680000000,0x000000078c600000,0x000000078c600000)
+  from space 411136K, 64% used [0x00000007a5f80000,0x00000007b6423a88,0x00000007bf100000)
+  to   space 419328K, 0% used [0x000000078c600000,0x000000078c600000,0x00000007a5f80000)
+ ParOldGen       total 1381888K, used 1188141K [0x0000000400000000, 0x0000000454580000, 0x0000000680000000)
+  object space 1381888K, 85% used [0x0000000400000000,0x000000044884b6f0,0x0000000454580000)
+ Metaspace       used 90901K, capacity 93122K, committed 93272K, reserved 1128448K
+  class space    used 13078K, capacity 13687K, committed 13696K, reserved 1048576K
+Event: 173.924 GC heap after
+Heap after GC invocations=93 (full 6):
+ PSYoungGen      total 4790784K, used 393536K [0x0000000680000000, 0x00000007c0000000, 0x00000007c0000000)
+  eden space 4397056K, 0% used [0x0000000680000000,0x0000000680000000,0x000000078c600000)
+  from space 393728K, 99% used [0x000000078c600000,0x00000007a46500a0,0x00000007a4680000)
+  to   space 452096K, 0% used [0x00000007a4680000,0x00000007a4680000,0x00000007c0000000)
+ ParOldGen       total 1381888K, used 1263692K [0x0000000400000000, 0x0000000454580000, 0x0000000680000000)
+  object space 1381888K, 91% used [0x0000000400000000,0x000000044d2132a8,0x0000000454580000)
+ Metaspace       used 90901K, capacity 93122K, committed 93272K, reserved 1128448K
+  class space    used 13078K, capacity 13687K, committed 13696K, reserved 1048576K
+}
+Event: 173.954 GC heap before
+{Heap before GC invocations=94 (full 7):
+ PSYoungGen      total 4790784K, used 393536K [0x0000000680000000, 0x00000007c0000000, 0x00000007c0000000)
+  eden space 4397056K, 0% used [0x0000000680000000,0x0000000680000000,0x000000078c600000)
+  from space 393728K, 99% used [0x000000078c600000,0x00000007a46500a0,0x00000007a4680000)
+  to   space 452096K, 0% used [0x00000007a4680000,0x00000007a4680000,0x00000007c0000000)
+ ParOldGen       total 1381888K, used 1263692K [0x0000000400000000, 0x0000000454580000, 0x0000000680000000)
+  object space 1381888K, 91% used [0x0000000400000000,0x000000044d2132a8,0x0000000454580000)
+ Metaspace       used 90901K, capacity 93122K, committed 93272K, reserved 1128448K
+  class space    used 13078K, capacity 13687K, committed 13696K, reserved 1048576K
+
+Deoptimization events (10 events):
+Event: 170.784 Thread 0x00007f767801b000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f7723b8a844 method=org.apache.spark.storage.DiskBlockObjectWriter.open()Lorg/apache/spark/storage/DiskBlockObjectWriter; @ 64
+Event: 170.784 Thread 0x00007f767801b000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f7722403018 method=org.apache.spark.HashPartitioner.getPartition(Ljava/lang/Object;)I @ 15
+Event: 170.784 Thread 0x00007f767801b000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f7723b892bc method=org.apache.spark.storage.DiskBlockObjectWriter.write(Ljava/lang/Object;Ljava/lang/Object;)V @ 29
+Event: 170.785 Thread 0x00007f767801b000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f7723b8a844 method=org.apache.spark.storage.DiskBlockObjectWriter.open()Lorg/apache/spark/storage/DiskBlockObjectWriter; @ 64
+Event: 171.052 Thread 0x00007f767801b000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f772181c720 method=org.apache.spark.serializer.JavaSerializationStream.writeObject(Ljava/lang/Object;Lscala/reflect/ClassTag;)Lorg/apache/spark/serializer/SerializationStream; @ 34
+Event: 171.789 Thread 0x00007f767801b000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f7724780ff0 method=org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext()V @ 550
+Event: 171.919 Thread 0x00007f767801b000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f7721d2f394 method=org.apache.spark.storage.DiskBlockObjectWriter.commitAndGet()Lorg/apache/spark/storage/FileSegment; @ 11
+Event: 171.919 Thread 0x00007f767801b000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f7721d2f394 method=org.apache.spark.storage.DiskBlockObjectWriter.commitAndGet()Lorg/apache/spark/storage/FileSegment; @ 11
+Event: 171.919 Thread 0x00007f767801b000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f7721d2f394 method=org.apache.spark.storage.DiskBlockObjectWriter.commitAndGet()Lorg/apache/spark/storage/FileSegment; @ 11
+Event: 171.919 Thread 0x00007f767801b000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f7721d2f394 method=org.apache.spark.storage.DiskBlockObjectWriter.commitAndGet()Lorg/apache/spark/storage/FileSegment; @ 11
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 170.342 Thread 0x00007f76a0009000 Exception <a 'java/lang/NoSuchMethodError': <clinit>> (0x00000006ba313710) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u191/11894/hotspot/src/share/vm/prims/jni.cpp, line 1613]
+Event: 170.342 Thread 0x00007f76a0009000 Exception <a 'java/lang/NoSuchMethodError': <clinit>> (0x00000006ba358f08) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u191/11894/hotspot/src/share/vm/prims/jni.cpp, line 1613]
+Event: 170.345 Thread 0x00007f76a0009000 Exception <a 'java/lang/NoSuchMethodError': <clinit>> (0x00000006ba3d30a0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u191/11894/hotspot/src/share/vm/prims/jni.cpp, line 1613]
+Event: 170.528 Thread 0x00007f76a0009000 Exception <a 'java/lang/NoSuchMethodError': <clinit>> (0x00000006ba737120) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u191/11894/hotspot/src/share/vm/prims/jni.cpp, line 1613]
+Event: 170.540 Thread 0x00007f76a0009000 Exception <a 'java/lang/NoSuchMethodError': <clinit>> (0x00000006ba786bb0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u191/11894/hotspot/src/share/vm/prims/jni.cpp, line 1613]
+Event: 170.550 Thread 0x00007f76a0009000 Exception <a 'java/lang/NoSuchMethodError': <clinit>> (0x00000006ba7e61e0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u191/11894/hotspot/src/share/vm/prims/jni.cpp, line 1613]
+Event: 170.552 Thread 0x00007f76a0009000 Exception <a 'java/lang/NoSuchMethodError': <clinit>> (0x00000006ba84ab10) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u191/11894/hotspot/src/share/vm/prims/jni.cpp, line 1613]
+Event: 170.569 Thread 0x00007f769881d000 Exception <a 'java/lang/NoSuchMethodError': <clinit>> (0x00000006b9eefd00) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u191/11894/hotspot/src/share/vm/prims/jni.cpp, line 1613]
+Event: 170.777 Thread 0x00007f767801b000 Exception <a 'java/lang/NoSuchMethodError': <clinit>> (0x00000006d480b8d8) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u191/11894/hotspot/src/share/vm/prims/jni.cpp, line 1613]
+Event: 170.777 Thread 0x00007f767801b000 Exception <a 'java/lang/NoSuchMethodError': <clinit>> (0x00000006d480eae0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u191/11894/hotspot/src/share/vm/prims/jni.cpp, line 1613]
+
+Events (10 events):
+Event: 171.919 Thread 0x00007f767801b000 Uncommon trap: trap_request=0xffffffde fr.pc=0x00007f7721d2f394
+Event: 171.919 Thread 0x00007f767801b000 DEOPT PACKING pc=0x00007f7721d2f394 sp=0x00007f75fe4efc50
+Event: 171.919 Thread 0x00007f767801b000 DEOPT UNPACKING pc=0x00007f772104573a sp=0x00007f75fe4efc08 mode 2
+Event: 171.919 Thread 0x00007f767801b000 Uncommon trap: trap_request=0xffffffde fr.pc=0x00007f7721d2f394
+Event: 171.919 Thread 0x00007f767801b000 DEOPT PACKING pc=0x00007f7721d2f394 sp=0x00007f75fe4efc50
+Event: 171.919 Thread 0x00007f767801b000 DEOPT UNPACKING pc=0x00007f772104573a sp=0x00007f75fe4efc08 mode 2
+Event: 171.919 Thread 0x00007f767801b000 Uncommon trap: trap_request=0xffffffde fr.pc=0x00007f7721d2f394
+Event: 171.919 Thread 0x00007f767801b000 DEOPT PACKING pc=0x00007f7721d2f394 sp=0x00007f75fe4efc50
+Event: 171.919 Thread 0x00007f767801b000 DEOPT UNPACKING pc=0x00007f772104573a sp=0x00007f75fe4efc08 mode 2
+Event: 173.684 Executing VM operation: ParallelGCFailedAllocation
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:12 529717                             /usr/lib/jvm/java-8-oracle/bin/java
+00600000-00601000 r--p 00000000 08:12 529717                             /usr/lib/jvm/java-8-oracle/bin/java
+00601000-00602000 rw-p 00001000 08:12 529717                             /usr/lib/jvm/java-8-oracle/bin/java
+0113e000-01215000 rw-p 00000000 00:00 0                                  [heap]
+400000000-454580000 rw-p 00000000 00:00 0 
+46ec00000-680000000 ---p 00000000 00:00 0 
+680000000-7c0000000 rw-p 00000000 00:00 0 
+7c0000000-7c0d60000 rw-p 00000000 00:00 0 
+7c0d60000-800000000 ---p 00000000 00:00 0 
+7f75e9a27000-7f75e9a2a000 ---p 00000000 00:00 0 
+7f75e9a2a000-7f75e9b28000 rw-p 00000000 00:00 0 
+7f75e9c29000-7f75e9c2c000 ---p 00000000 00:00 0 
+7f75e9c2c000-7f75e9d2a000 rw-p 00000000 00:00 0 
+7f75e9e2b000-7f75ea02b000 rw-p 00000000 00:00 0 
+7f75ea22d000-7f75ea230000 ---p 00000000 00:00 0 
+7f75ea230000-7f75ea32e000 rw-p 00000000 00:00 0 
+7f75ea32e000-7f75ea331000 ---p 00000000 00:00 0 
+7f75ea331000-7f75ea42f000 rw-p 00000000 00:00 0 
+7f75ea530000-7f75ea533000 ---p 00000000 00:00 0 
+7f75ea533000-7f75ea631000 rw-p 00000000 00:00 0 
+7f75ea732000-7f75ea735000 ---p 00000000 00:00 0 
+7f75ea735000-7f75ea833000 rw-p 00000000 00:00 0 
+7f75ea833000-7f75ea836000 ---p 00000000 00:00 0 
+7f75ea836000-7f75ea934000 rw-p 00000000 00:00 0 
+7f75ead38000-7f75ead3b000 ---p 00000000 00:00 0 
+7f75ead3b000-7f75eae39000 rw-p 00000000 00:00 0 
+7f75eae39000-7f75eae3c000 ---p 00000000 00:00 0 
+7f75eae3c000-7f75eaf3a000 rw-p 00000000 00:00 0 
+7f75eb03b000-7f75eb03e000 ---p 00000000 00:00 0 
+7f75eb03e000-7f75eb13c000 rw-p 00000000 00:00 0 
+7f75eb13c000-7f75eb13f000 ---p 00000000 00:00 0 
+7f75eb13f000-7f75eb23d000 rw-p 00000000 00:00 0 
+7f75eb23d000-7f75eb240000 ---p 00000000 00:00 0 
+7f75eb240000-7f75eb33e000 rw-p 00000000 00:00 0 
+7f75eb33e000-7f75eb341000 ---p 00000000 00:00 0 
+7f75eb341000-7f75eb43f000 rw-p 00000000 00:00 0 
+7f75eb43f000-7f75eb442000 ---p 00000000 00:00 0 
+7f75eb442000-7f75eb540000 rw-p 00000000 00:00 0 
+7f75eb540000-7f75eb543000 ---p 00000000 00:00 0 
+7f75eb543000-7f75eb641000 rw-p 00000000 00:00 0 
+7f75eb641000-7f75eb644000 ---p 00000000 00:00 0 
+7f75eb644000-7f75eb942000 rw-p 00000000 00:00 0 
+7f75eb942000-7f75eb945000 ---p 00000000 00:00 0 
+7f75eb945000-7f75eba43000 rw-p 00000000 00:00 0 
+7f75eba43000-7f75eba46000 ---p 00000000 00:00 0 
+7f75eba46000-7f75ebb44000 rw-p 00000000 00:00 0 
+7f75ebb44000-7f75ebb47000 ---p 00000000 00:00 0 
+7f75ebb47000-7f75ebc45000 rw-p 00000000 00:00 0 
+7f75ebc45000-7f75ebc48000 ---p 00000000 00:00 0 
+7f75ebc48000-7f75ebd46000 rw-p 00000000 00:00 0 
+7f75ebd46000-7f75ebd49000 ---p 00000000 00:00 0 
+7f75ebd49000-7f75ebe47000 rw-p 00000000 00:00 0 
+7f75ebf48000-7f75ec148000 rw-p 00000000 00:00 0 
+7f75ec148000-7f75ec14b000 ---p 00000000 00:00 0 
+7f75ec14b000-7f75ec249000 rw-p 00000000 00:00 0 
+7f75ec249000-7f75ec24c000 ---p 00000000 00:00 0 
+7f75ec24c000-7f75ec34a000 rw-p 00000000 00:00 0 
+7f75ec44b000-7f75ec44e000 ---p 00000000 00:00 0 
+7f75ec44e000-7f75ec54c000 rw-p 00000000 00:00 0 
+7f75ec54c000-7f75ec54f000 ---p 00000000 00:00 0 
+7f75ec54f000-7f75ec64d000 rw-p 00000000 00:00 0 
+7f75ec74e000-7f75ec751000 ---p 00000000 00:00 0 
+7f75ec751000-7f75ec84f000 rw-p 00000000 00:00 0 
+7f75ec950000-7f75ec953000 ---p 00000000 00:00 0 
+7f75ec953000-7f75eca51000 rw-p 00000000 00:00 0 
+7f75ecb52000-7f75ecb55000 ---p 00000000 00:00 0 
+7f75ecb55000-7f75ecc53000 rw-p 00000000 00:00 0 
+7f75ecc53000-7f75ecc56000 ---p 00000000 00:00 0 
+7f75ecc56000-7f75ecd54000 rw-p 00000000 00:00 0 
+7f75ecf56000-7f75ecf59000 ---p 00000000 00:00 0 
+7f75ecf59000-7f75ed057000 rw-p 00000000 00:00 0 
+7f75ed158000-7f75ed15b000 ---p 00000000 00:00 0 
+7f75ed15b000-7f75ed259000 rw-p 00000000 00:00 0 
+7f75ed259000-7f75ed25c000 ---p 00000000 00:00 0 
+7f75ed25c000-7f75ed35a000 rw-p 00000000 00:00 0 
+7f75ed55c000-7f75ed55f000 ---p 00000000 00:00 0 
+7f75ed55f000-7f75ed65d000 rw-p 00000000 00:00 0 
+7f75ed75e000-7f75ed761000 ---p 00000000 00:00 0 
+7f75ed761000-7f75eda5f000 rw-p 00000000 00:00 0 
+7f75eda5f000-7f75eda62000 ---p 00000000 00:00 0 
+7f75eda62000-7f75edb60000 rw-p 00000000 00:00 0 
+7f75edb60000-7f75edb63000 ---p 00000000 00:00 0 
+7f75edb63000-7f75edc61000 rw-p 00000000 00:00 0 
+7f75edf64000-7f75edf67000 ---p 00000000 00:00 0 
+7f75edf67000-7f75ee065000 rw-p 00000000 00:00 0 
+7f75ee065000-7f75ee068000 ---p 00000000 00:00 0 
+7f75ee068000-7f75ee166000 rw-p 00000000 00:00 0 
+7f75ee166000-7f75ee169000 ---p 00000000 00:00 0 
+7f75ee169000-7f75ee267000 rw-p 00000000 00:00 0 
+7f75ee267000-7f75ee26a000 ---p 00000000 00:00 0 
+7f75ee26a000-7f75ee368000 rw-p 00000000 00:00 0 
+7f75ee368000-7f75ee36b000 ---p 00000000 00:00 0 
+7f75ee36b000-7f75ee469000 rw-p 00000000 00:00 0 
+7f75ee469000-7f75ee46c000 ---p 00000000 00:00 0 
+7f75ee46c000-7f75ee56a000 rw-p 00000000 00:00 0 
+7f75ee56a000-7f75ee56d000 ---p 00000000 00:00 0 
+7f75ee56d000-7f75ee66b000 rw-p 00000000 00:00 0 
+7f75ee66b000-7f75ee66e000 ---p 00000000 00:00 0 
+7f75ee66e000-7f75ee76c000 rw-p 00000000 00:00 0 
+7f75ee76c000-7f75ee76f000 ---p 00000000 00:00 0 
+7f75ee76f000-7f75ee86d000 rw-p 00000000 00:00 0 
+7f75ee86d000-7f75ee870000 ---p 00000000 00:00 0 
+7f75ee870000-7f75ee96e000 rw-p 00000000 00:00 0 
+7f75ee96e000-7f75ee971000 ---p 00000000 00:00 0 
+7f75ee971000-7f75eea6f000 rw-p 00000000 00:00 0 
+7f75eea6f000-7f75eea72000 ---p 00000000 00:00 0 
+7f75eea72000-7f75eeb70000 rw-p 00000000 00:00 0 
+7f75eeb70000-7f75eeb73000 ---p 00000000 00:00 0 
+7f75eeb73000-7f75eec71000 rw-p 00000000 00:00 0 
+7f75eec71000-7f75eec74000 ---p 00000000 00:00 0 
+7f75eec74000-7f75eed72000 rw-p 00000000 00:00 0 
+7f75eed72000-7f75eed75000 ---p 00000000 00:00 0 
+7f75eed75000-7f75eee73000 rw-p 00000000 00:00 0 
+7f75eee73000-7f75eee76000 ---p 00000000 00:00 0 
+7f75eee76000-7f75eef74000 rw-p 00000000 00:00 0 
+7f75eef74000-7f75eef77000 ---p 00000000 00:00 0 
+7f75eef77000-7f75ef075000 rw-p 00000000 00:00 0 
+7f75ef075000-7f75ef078000 ---p 00000000 00:00 0 
+7f75ef078000-7f75ef176000 rw-p 00000000 00:00 0 
+7f75ef176000-7f75ef179000 ---p 00000000 00:00 0 
+7f75ef179000-7f75ef277000 rw-p 00000000 00:00 0 
+7f75ef277000-7f75ef27a000 ---p 00000000 00:00 0 
+7f75ef27a000-7f75ef378000 rw-p 00000000 00:00 0 
+7f75ef378000-7f75ef37b000 ---p 00000000 00:00 0 
+7f75ef37b000-7f75ef479000 rw-p 00000000 00:00 0 
+7f75ef479000-7f75ef47c000 ---p 00000000 00:00 0 
+7f75ef47c000-7f75ef57a000 rw-p 00000000 00:00 0 
+7f75ef57a000-7f75ef57d000 ---p 00000000 00:00 0 
+7f75ef57d000-7f75ef67b000 rw-p 00000000 00:00 0 
+7f75ef67b000-7f75ef67e000 ---p 00000000 00:00 0 
+7f75ef67e000-7f75ef77c000 rw-p 00000000 00:00 0 
+7f75ef77c000-7f75ef77f000 ---p 00000000 00:00 0 
+7f75ef77f000-7f75ef87d000 rw-p 00000000 00:00 0 
+7f75ef87d000-7f75ef880000 ---p 00000000 00:00 0 
+7f75ef880000-7f75ef97e000 rw-p 00000000 00:00 0 
+7f75ef97e000-7f75ef981000 ---p 00000000 00:00 0 
+7f75ef981000-7f75efa7f000 rw-p 00000000 00:00 0 
+7f75efa7f000-7f75efa82000 ---p 00000000 00:00 0 
+7f75efa82000-7f75efb80000 rw-p 00000000 00:00 0 
+7f75efb80000-7f75efb83000 ---p 00000000 00:00 0 
+7f75efb83000-7f75efc81000 rw-p 00000000 00:00 0 
+7f75efd82000-7f75efd85000 ---p 00000000 00:00 0 
+7f75efd85000-7f75efe83000 rw-p 00000000 00:00 0 
+7f75efe83000-7f75efe86000 ---p 00000000 00:00 0 
+7f75efe86000-7f75eff84000 rw-p 00000000 00:00 0 
+7f75eff84000-7f75eff87000 ---p 00000000 00:00 0 
+7f75eff87000-7f75f0085000 rw-p 00000000 00:00 0 
+7f75f0085000-7f75f0088000 ---p 00000000 00:00 0 
+7f75f0088000-7f75f0186000 rw-p 00000000 00:00 0 
+7f75f0186000-7f75f0189000 ---p 00000000 00:00 0 
+7f75f0189000-7f75f0287000 rw-p 00000000 00:00 0 
+7f75f0287000-7f75f028a000 ---p 00000000 00:00 0 
+7f75f028a000-7f75f0388000 rw-p 00000000 00:00 0 
+7f75f0388000-7f75f038b000 ---p 00000000 00:00 0 
+7f75f038b000-7f75f0489000 rw-p 00000000 00:00 0 
+7f75f0489000-7f75f048c000 ---p 00000000 00:00 0 
+7f75f048c000-7f75f058a000 rw-p 00000000 00:00 0 
+7f75f058a000-7f75f058d000 ---p 00000000 00:00 0 
+7f75f058d000-7f75f068b000 rw-p 00000000 00:00 0 
+7f75f068b000-7f75f068e000 ---p 00000000 00:00 0 
+7f75f068e000-7f75f078c000 rw-p 00000000 00:00 0 
+7f75f078c000-7f75f078f000 ---p 00000000 00:00 0 
+7f75f078f000-7f75f088d000 rw-p 00000000 00:00 0 
+7f75f088d000-7f75f0890000 ---p 00000000 00:00 0 
+7f75f0890000-7f75f098e000 rw-p 00000000 00:00 0 
+7f75f098e000-7f75f0991000 ---p 00000000 00:00 0 
+7f75f0991000-7f75f0a8f000 rw-p 00000000 00:00 0 
+7f75f0a8f000-7f75f0a92000 ---p 00000000 00:00 0 
+7f75f0a92000-7f75f0b90000 rw-p 00000000 00:00 0 
+7f75f0b90000-7f75f0b93000 ---p 00000000 00:00 0 
+7f75f0b93000-7f75f0c91000 rw-p 00000000 00:00 0 
+7f75f0d92000-7f75f0d95000 ---p 00000000 00:00 0 
+7f75f0d95000-7f75f0e93000 rw-p 00000000 00:00 0 
+7f75f0e93000-7f75f0e96000 ---p 00000000 00:00 0 
+7f75f0e96000-7f75f0f94000 rw-p 00000000 00:00 0 
+7f75f0f94000-7f75f0f97000 ---p 00000000 00:00 0 
+7f75f0f97000-7f75f1095000 rw-p 00000000 00:00 0 
+7f75f1095000-7f75f1098000 ---p 00000000 00:00 0 
+7f75f1098000-7f75f1196000 rw-p 00000000 00:00 0 
+7f75f1196000-7f75f1199000 ---p 00000000 00:00 0 
+7f75f1199000-7f75f1297000 rw-p 00000000 00:00 0 
+7f75f1297000-7f75f129a000 ---p 00000000 00:00 0 
+7f75f129a000-7f75f1398000 rw-p 00000000 00:00 0 
+7f75f1398000-7f75f139b000 ---p 00000000 00:00 0 
+7f75f139b000-7f75f1499000 rw-p 00000000 00:00 0 
+7f75f1499000-7f75f149c000 ---p 00000000 00:00 0 
+7f75f149c000-7f75f159a000 rw-p 00000000 00:00 0 
+7f75f159a000-7f75f159d000 ---p 00000000 00:00 0 
+7f75f159d000-7f75f169b000 rw-p 00000000 00:00 0 
+7f75f179c000-7f75f179f000 ---p 00000000 00:00 0 
+7f75f179f000-7f75f189d000 rw-p 00000000 00:00 0 
+7f75f189d000-7f75f18a0000 ---p 00000000 00:00 0 
+7f75f18a0000-7f75f199e000 rw-p 00000000 00:00 0 
+7f75f1bbe000-7f75f1bc1000 ---p 00000000 00:00 0 
+7f75f1bc1000-7f75f1cbf000 rw-p 00000000 00:00 0 
+7f75f1cbf000-7f75f1cc2000 ---p 00000000 00:00 0 
+7f75f1cc2000-7f75f1dc0000 rw-p 00000000 00:00 0 
+7f75f1ec1000-7f75f1ec4000 ---p 00000000 00:00 0 
+7f75f1ec4000-7f75f1fc2000 rw-p 00000000 00:00 0 
+7f75f1fc2000-7f75f1fc5000 ---p 00000000 00:00 0 
+7f75f1fc5000-7f75f20c3000 rw-p 00000000 00:00 0 
+7f75f20c3000-7f75f20c6000 ---p 00000000 00:00 0 
+7f75f20c6000-7f75f21c4000 rw-p 00000000 00:00 0 
+7f75f22c5000-7f75f22c8000 ---p 00000000 00:00 0 
+7f75f22c8000-7f75f23c6000 rw-p 00000000 00:00 0 
+7f75f23c6000-7f75f23c9000 ---p 00000000 00:00 0 
+7f75f23c9000-7f75f24c7000 rw-p 00000000 00:00 0 
+7f75f24c7000-7f75f24ca000 ---p 00000000 00:00 0 
+7f75f24ca000-7f75f25c8000 rw-p 00000000 00:00 0 
+7f75f25c8000-7f75f25cb000 ---p 00000000 00:00 0 
+7f75f25cb000-7f75f26c9000 rw-p 00000000 00:00 0 
+7f75f26c9000-7f75f26cc000 ---p 00000000 00:00 0 
+7f75f26cc000-7f75f27ca000 rw-p 00000000 00:00 0 
+7f75f27ca000-7f75f27cd000 ---p 00000000 00:00 0 
+7f75f27cd000-7f75f28cb000 rw-p 00000000 00:00 0 
+7f75f28cb000-7f75f28ce000 ---p 00000000 00:00 0 
+7f75f28ce000-7f75f29cc000 rw-p 00000000 00:00 0 
+7f75f2acd000-7f75f2ad0000 ---p 00000000 00:00 0 
+7f75f2ad0000-7f75f2bce000 rw-p 00000000 00:00 0 
+7f75f2ccf000-7f75f2cd2000 ---p 00000000 00:00 0 
+7f75f2cd2000-7f75f2dd0000 rw-p 00000000 00:00 0 
+7f75f2dd0000-7f75f2dd3000 ---p 00000000 00:00 0 
+7f75f2dd3000-7f75f2ed1000 rw-p 00000000 00:00 0 
+7f75f2ed1000-7f75f2ed4000 ---p 00000000 00:00 0 
+7f75f2ed4000-7f75f2fd2000 rw-p 00000000 00:00 0 
+7f75f30d3000-7f75f30d6000 ---p 00000000 00:00 0 
+7f75f30d6000-7f75f31d4000 rw-p 00000000 00:00 0 
+7f75f31d4000-7f75f31d7000 ---p 00000000 00:00 0 
+7f75f31d7000-7f75f32d5000 rw-p 00000000 00:00 0 
+7f75f33d6000-7f75f33d9000 ---p 00000000 00:00 0 
+7f75f33d9000-7f75f34d7000 rw-p 00000000 00:00 0 
+7f75f35da000-7f75f379a000 rw-p 00000000 00:00 0 
+7f75f379a000-7f75f37da000 ---p 00000000 00:00 0 
+7f75f37da000-7f75f37dd000 ---p 00000000 00:00 0 
+7f75f37dd000-7f75f38db000 rw-p 00000000 00:00 0 
+7f75f39dc000-7f75f39df000 ---p 00000000 00:00 0 
+7f75f39df000-7f75f3add000 rw-p 00000000 00:00 0 
+7f75f3add000-7f75f3ae0000 ---p 00000000 00:00 0 
+7f75f3ae0000-7f75f3bde000 rw-p 00000000 00:00 0 
+7f75f3bde000-7f75f3be1000 ---p 00000000 00:00 0 
+7f75f3be1000-7f75f3cdf000 rw-p 00000000 00:00 0 
+7f75f3cdf000-7f75f3ce2000 ---p 00000000 00:00 0 
+7f75f3ce2000-7f75f3de0000 rw-p 00000000 00:00 0 
+7f75f3de0000-7f75f3de3000 ---p 00000000 00:00 0 
+7f75f3de3000-7f75f3ee1000 rw-p 00000000 00:00 0 
+7f75f3fe2000-7f75f3fe5000 ---p 00000000 00:00 0 
+7f75f3fe5000-7f75f40e3000 rw-p 00000000 00:00 0 
+7f75f40e3000-7f75f40e6000 ---p 00000000 00:00 0 
+7f75f40e6000-7f75f41e4000 rw-p 00000000 00:00 0 
+7f75f41e4000-7f75f41e7000 ---p 00000000 00:00 0 
+7f75f41e7000-7f75f42e5000 rw-p 00000000 00:00 0 
+7f75f42e5000-7f75f42e8000 ---p 00000000 00:00 0 
+7f75f42e8000-7f75f43e6000 rw-p 00000000 00:00 0 
+7f75f43e6000-7f75f43e9000 ---p 00000000 00:00 0 
+7f75f43e9000-7f75f44e7000 rw-p 00000000 00:00 0 
+7f75f44e7000-7f75f44ea000 ---p 00000000 00:00 0 
+7f75f44ea000-7f75f65ea000 rw-p 00000000 00:00 0 
+7f75f65ea000-7f75f65ed000 ---p 00000000 00:00 0 
+7f75f65ed000-7f75f66eb000 rw-p 00000000 00:00 0 
+7f75f66eb000-7f75f66ee000 ---p 00000000 00:00 0 
+7f75f66ee000-7f75f67ec000 rw-p 00000000 00:00 0 
+7f75f67ec000-7f75f67ef000 ---p 00000000 00:00 0 
+7f75f67ef000-7f75f68ed000 rw-p 00000000 00:00 0 
+7f75f68ed000-7f75f68f0000 ---p 00000000 00:00 0 
+7f75f68f0000-7f75f6bee000 rw-p 00000000 00:00 0 
+7f75f6bee000-7f75f6bf1000 ---p 00000000 00:00 0 
+7f75f6bf1000-7f75f6cef000 rw-p 00000000 00:00 0 
+7f75f6cef000-7f75f6cf2000 ---p 00000000 00:00 0 
+7f75f6cf2000-7f75f6df0000 rw-p 00000000 00:00 0 
+7f75f6df0000-7f75f6df3000 ---p 00000000 00:00 0 
+7f75f6df3000-7f75f6ef1000 rw-p 00000000 00:00 0 
+7f75f6ef1000-7f75f6ef4000 ---p 00000000 00:00 0 
+7f75f6ef4000-7f75f6ff2000 rw-p 00000000 00:00 0 
+7f75f70f3000-7f75f70f6000 ---p 00000000 00:00 0 
+7f75f70f6000-7f75f71f4000 rw-p 00000000 00:00 0 
+7f75f72f5000-7f75f72f8000 ---p 00000000 00:00 0 
+7f75f72f8000-7f75f73f6000 rw-p 00000000 00:00 0 
+7f75f73f6000-7f75f73f9000 ---p 00000000 00:00 0 
+7f75f73f9000-7f75f74f7000 rw-p 00000000 00:00 0 
+7f75f74f7000-7f75f74fa000 ---p 00000000 00:00 0 
+7f75f74fa000-7f75f75f8000 rw-p 00000000 00:00 0 
+7f75f76f9000-7f75f76fc000 ---p 00000000 00:00 0 
+7f75f76fc000-7f75f77fa000 rw-p 00000000 00:00 0 
+7f75f77fa000-7f75f77fd000 ---p 00000000 00:00 0 
+7f75f77fd000-7f75f78fb000 rw-p 00000000 00:00 0 
+7f75f78fb000-7f75f78fe000 ---p 00000000 00:00 0 
+7f75f78fe000-7f75f7bfc000 rw-p 00000000 00:00 0 
+7f75f7bfe000-7f75f7dfe000 rw-p 00000000 00:00 0 
+7f75f7dfe000-7f75f7e01000 ---p 00000000 00:00 0 
+7f75f7e01000-7f75f7eff000 rw-p 00000000 00:00 0 
+7f75f7eff000-7f75f7f02000 ---p 00000000 00:00 0 
+7f75f7f02000-7f75f8000000 rw-p 00000000 00:00 0 
+7f75f8000000-7f75f802e000 rw-p 00000000 00:00 0 
+7f75f802e000-7f75fc000000 ---p 00000000 00:00 0 
+7f75fc0d2000-7f75fc0d5000 ---p 00000000 00:00 0 
+7f75fc0d5000-7f75fc1d3000 rw-p 00000000 00:00 0 
+7f75fc1d3000-7f75fc1d6000 ---p 00000000 00:00 0 
+7f75fc1d6000-7f75fc2d4000 rw-p 00000000 00:00 0 
+7f75fc2d4000-7f75fc2d7000 ---p 00000000 00:00 0 
+7f75fc2d7000-7f75fc3d5000 rw-p 00000000 00:00 0 
+7f75fc3d5000-7f75fc3d8000 ---p 00000000 00:00 0 
+7f75fc3d8000-7f75fc4d6000 rw-p 00000000 00:00 0 
+7f75fc4d6000-7f75fc4d9000 ---p 00000000 00:00 0 
+7f75fc4d9000-7f75fc5d7000 rw-p 00000000 00:00 0 
+7f75fc6d8000-7f75fc6db000 ---p 00000000 00:00 0 
+7f75fc6db000-7f75fc7d9000 rw-p 00000000 00:00 0 
+7f75fc7d9000-7f75fc7dc000 ---p 00000000 00:00 0 
+7f75fc7dc000-7f75fc8da000 rw-p 00000000 00:00 0 
+7f75fc8da000-7f75fc8dd000 ---p 00000000 00:00 0 
+7f75fc8dd000-7f75fc9db000 rw-p 00000000 00:00 0 
+7f75fcadc000-7f75fcadf000 ---p 00000000 00:00 0 
+7f75fcadf000-7f75fcbdd000 rw-p 00000000 00:00 0 
+7f75fccde000-7f75fcce1000 ---p 00000000 00:00 0 
+7f75fcce1000-7f75fcddf000 rw-p 00000000 00:00 0 
+7f75fcddf000-7f75fcde2000 ---p 00000000 00:00 0 
+7f75fcde2000-7f75fd0e0000 rw-p 00000000 00:00 0 
+7f75fd0e0000-7f75fd0e3000 ---p 00000000 00:00 0 
+7f75fd0e3000-7f75fd1e1000 rw-p 00000000 00:00 0 
+7f75fd1e1000-7f75fd1e4000 ---p 00000000 00:00 0 
+7f75fd1e4000-7f75fd2e2000 rw-p 00000000 00:00 0 
+7f75fd2e2000-7f75fd2e5000 ---p 00000000 00:00 0 
+7f75fd2e5000-7f75fd3e3000 rw-p 00000000 00:00 0 
+7f75fd3e3000-7f75fd3e6000 ---p 00000000 00:00 0 
+7f75fd3e6000-7f75fd4e4000 rw-p 00000000 00:00 0 
+7f75fd4e4000-7f75fd4e7000 ---p 00000000 00:00 0 
+7f75fd4e7000-7f75fd5e5000 rw-p 00000000 00:00 0 
+7f75fd5e5000-7f75fd5e8000 ---p 00000000 00:00 0 
+7f75fd5e8000-7f75fd6e6000 rw-p 00000000 00:00 0 
+7f75fd6e6000-7f75fd6e9000 ---p 00000000 00:00 0 
+7f75fd6e9000-7f75fd7e7000 rw-p 00000000 00:00 0 
+7f75fd7e7000-7f75fd7ea000 ---p 00000000 00:00 0 
+7f75fd7ea000-7f75fd8e8000 rw-p 00000000 00:00 0 
+7f75fd8e8000-7f75fd8eb000 ---p 00000000 00:00 0 
+7f75fd8eb000-7f75fd9e9000 rw-p 00000000 00:00 0 
+7f75fd9e9000-7f75fd9ec000 ---p 00000000 00:00 0 
+7f75fd9ec000-7f75fdaea000 rw-p 00000000 00:00 0 
+7f75fdaea000-7f75fdaed000 ---p 00000000 00:00 0 
+7f75fdaed000-7f75fdbeb000 rw-p 00000000 00:00 0 
+7f75fde0a000-7f75fde0d000 ---p 00000000 00:00 0 
+7f75fde0d000-7f75fde43000 rw-p 00000000 00:00 0 
+7f75fde43000-7f75fde46000 ---p 00000000 00:00 0 
+7f75fde46000-7f75fde7c000 rw-p 00000000 00:00 0 
+7f75fdeb5000-7f75fdeb8000 ---p 00000000 00:00 0 
+7f75fdeb8000-7f75fdeee000 rw-p 00000000 00:00 0 
+7f75fdeee000-7f75fdef1000 ---p 00000000 00:00 0 
+7f75fdef1000-7f75fdfef000 rw-p 00000000 00:00 0 
+7f75fe0f0000-7f75fe0f3000 ---p 00000000 00:00 0 
+7f75fe0f3000-7f75fe3f1000 rw-p 00000000 00:00 0 
+7f75fe3f1000-7f75fe3f4000 ---p 00000000 00:00 0 
+7f75fe3f4000-7f75fe6f2000 rw-p 00000000 00:00 0 
+7f75fe6f2000-7f75fe6ff000 r-xp 00000000 08:12 3409671                    /tmp/liblz4-java2915426310192439896.so
+7f75fe6ff000-7f75fe8fe000 ---p 0000d000 08:12 3409671                    /tmp/liblz4-java2915426310192439896.so
+7f75fe8fe000-7f75fe8ff000 rw-p 0000c000 08:12 3409671                    /tmp/liblz4-java2915426310192439896.so
+7f75fe8ff000-7f75feaff000 rw-p 00000000 00:00 0 
+7f75feaff000-7f75fecff000 rw-p 00000000 00:00 0 
+7f75fecff000-7f75feeff000 rw-p 00000000 00:00 0 
+7f75feeff000-7f75ff0ff000 rw-p 00000000 00:00 0 
+7f75ff0ff000-7f75ff2ff000 rw-p 00000000 00:00 0 
+7f75ff2ff000-7f75ff4ff000 rw-p 00000000 00:00 0 
+7f75ff4ff000-7f75ff6ff000 rw-p 00000000 00:00 0 
+7f75ff6ff000-7f75ff8ff000 rw-p 00000000 00:00 0 
+7f75ff8ff000-7f75ffaff000 rw-p 00000000 00:00 0 
+7f75ffaff000-7f75ffcff000 rw-p 00000000 00:00 0 
+7f75ffcff000-7f75ffd02000 ---p 00000000 00:00 0 
+7f75ffd02000-7f7600000000 rw-p 00000000 00:00 0 
+7f7600000000-7f760002c000 rw-p 00000000 00:00 0 
+7f760002c000-7f7604000000 ---p 00000000 00:00 0 
+7f7604000000-7f7604025000 rw-p 00000000 00:00 0 
+7f7604025000-7f7608000000 ---p 00000000 00:00 0 
+7f7608000000-7f76080a1000 rw-p 00000000 00:00 0 
+7f76080a1000-7f760c000000 ---p 00000000 00:00 0 
+7f760c000000-7f760c03b000 rw-p 00000000 00:00 0 
+7f760c03b000-7f7610000000 ---p 00000000 00:00 0 
+7f7610000000-7f761002a000 rw-p 00000000 00:00 0 
+7f761002a000-7f7614000000 ---p 00000000 00:00 0 
+7f7614000000-7f761402a000 rw-p 00000000 00:00 0 
+7f761402a000-7f7618000000 ---p 00000000 00:00 0 
+7f7618000000-7f7618122000 rw-p 00000000 00:00 0 
+7f7618122000-7f761c000000 ---p 00000000 00:00 0 
+7f761c000000-7f761c09f000 rw-p 00000000 00:00 0 
+7f761c09f000-7f7620000000 ---p 00000000 00:00 0 
+7f7620000000-7f7620077000 rw-p 00000000 00:00 0 
+7f7620077000-7f7624000000 ---p 00000000 00:00 0 
+7f7624000000-7f762412b000 rw-p 00000000 00:00 0 
+7f762412b000-7f7628000000 ---p 00000000 00:00 0 
+7f7628000000-7f76280e5000 rw-p 00000000 00:00 0 
+7f76280e5000-7f762c000000 ---p 00000000 00:00 0 
+7f762c000000-7f762c0a3000 rw-p 00000000 00:00 0 
+7f762c0a3000-7f7630000000 ---p 00000000 00:00 0 
+7f7630000000-7f763002a000 rw-p 00000000 00:00 0 
+7f763002a000-7f7634000000 ---p 00000000 00:00 0 
+7f7634000000-7f7634053000 rw-p 00000000 00:00 0 
+7f7634053000-7f7638000000 ---p 00000000 00:00 0 
+7f7638000000-7f7638035000 rw-p 00000000 00:00 0 
+7f7638035000-7f763c000000 ---p 00000000 00:00 0 
+7f763c000000-7f763c028000 rw-p 00000000 00:00 0 
+7f763c028000-7f7640000000 ---p 00000000 00:00 0 
+7f7640000000-7f7640028000 rw-p 00000000 00:00 0 
+7f7640028000-7f7644000000 ---p 00000000 00:00 0 
+7f7644000000-7f764402e000 rw-p 00000000 00:00 0 
+7f764402e000-7f7648000000 ---p 00000000 00:00 0 
+7f7648000000-7f76482c1000 rw-p 00000000 00:00 0 
+7f76482c1000-7f764c000000 ---p 00000000 00:00 0 
+7f764c000000-7f764c025000 rw-p 00000000 00:00 0 
+7f764c025000-7f7650000000 ---p 00000000 00:00 0 
+7f7650000000-7f765002d000 rw-p 00000000 00:00 0 
+7f765002d000-7f7654000000 ---p 00000000 00:00 0 
+7f7654000000-7f7654174000 rw-p 00000000 00:00 0 
+7f7654174000-7f7658000000 ---p 00000000 00:00 0 
+7f7658000000-7f765802a000 rw-p 00000000 00:00 0 
+7f765802a000-7f765c000000 ---p 00000000 00:00 0 
+7f765c000000-7f765c029000 rw-p 00000000 00:00 0 
+7f765c029000-7f7660000000 ---p 00000000 00:00 0 
+7f7660000000-7f7660028000 rw-p 00000000 00:00 0 
+7f7660028000-7f7664000000 ---p 00000000 00:00 0 
+7f7664000000-7f7664029000 rw-p 00000000 00:00 0 
+7f7664029000-7f7668000000 ---p 00000000 00:00 0 
+7f7668000000-7f7668028000 rw-p 00000000 00:00 0 
+7f7668028000-7f766c000000 ---p 00000000 00:00 0 
+7f766c000000-7f766c037000 rw-p 00000000 00:00 0 
+7f766c037000-7f7670000000 ---p 00000000 00:00 0 
+7f7670000000-7f7670026000 rw-p 00000000 00:00 0 
+7f7670026000-7f7674000000 ---p 00000000 00:00 0 
+7f7674000000-7f767402a000 rw-p 00000000 00:00 0 
+7f767402a000-7f7678000000 ---p 00000000 00:00 0 
+7f7678000000-7f7678062000 rw-p 00000000 00:00 0 
+7f7678062000-7f767c000000 ---p 00000000 00:00 0 
+7f767c000000-7f767c028000 rw-p 00000000 00:00 0 
+7f767c028000-7f7680000000 ---p 00000000 00:00 0 
+7f7680000000-7f7680036000 rw-p 00000000 00:00 0 
+7f7680036000-7f7684000000 ---p 00000000 00:00 0 
+7f7684000000-7f768405e000 rw-p 00000000 00:00 0 
+7f768405e000-7f7688000000 ---p 00000000 00:00 0 
+7f7688000000-7f768808a000 rw-p 00000000 00:00 0 
+7f768808a000-7f768c000000 ---p 00000000 00:00 0 
+7f768c000000-7f768c079000 rw-p 00000000 00:00 0 
+7f768c079000-7f7690000000 ---p 00000000 00:00 0 
+7f7690000000-7f7690039000 rw-p 00000000 00:00 0 
+7f7690039000-7f7694000000 ---p 00000000 00:00 0 
+7f7694000000-7f7694045000 rw-p 00000000 00:00 0 
+7f7694045000-7f7698000000 ---p 00000000 00:00 0 
+7f7698000000-7f7699899000 rw-p 00000000 00:00 0 
+7f7699899000-7f769c000000 ---p 00000000 00:00 0 
+7f769c000000-7f769c03b000 rw-p 00000000 00:00 0 
+7f769c03b000-7f76a0000000 ---p 00000000 00:00 0 
+7f76a0000000-7f76a0033000 rw-p 00000000 00:00 0 
+7f76a0033000-7f76a4000000 ---p 00000000 00:00 0 
+7f76a4008000-7f76a400b000 ---p 00000000 00:00 0 
+7f76a400b000-7f76a4309000 rw-p 00000000 00:00 0 
+7f76a4309000-7f76a4509000 rw-p 00000000 00:00 0 
+7f76a4509000-7f76a46ff000 rw-p 00000000 00:00 0 
+7f76a46ff000-7f76a4709000 ---p 00000000 00:00 0 
+7f76a4709000-7f76a470c000 ---p 00000000 00:00 0 
+7f76a470c000-7f76a480a000 rw-p 00000000 00:00 0 
+7f76a480a000-7f76a480d000 ---p 00000000 00:00 0 
+7f76a480d000-7f76a490b000 rw-p 00000000 00:00 0 
+7f76a490b000-7f76a490e000 ---p 00000000 00:00 0 
+7f76a490e000-7f76a4c0c000 rw-p 00000000 00:00 0 
+7f76a4c71000-7f76a4c74000 ---p 00000000 00:00 0 
+7f76a4c74000-7f76a4caa000 rw-p 00000000 00:00 0 
+7f76a4caa000-7f76a4cad000 ---p 00000000 00:00 0 
+7f76a4cad000-7f76a4dab000 rw-p 00000000 00:00 0 
+7f76a4dab000-7f76a4dae000 ---p 00000000 00:00 0 
+7f76a4dae000-7f76a50ac000 rw-p 00000000 00:00 0 
+7f76a50ac000-7f76a50af000 ---p 00000000 00:00 0 
+7f76a50af000-7f76a51ad000 rw-p 00000000 00:00 0 
+7f76a51cc000-7f76a51cf000 ---p 00000000 00:00 0 
+7f76a51cf000-7f76a52cd000 rw-p 00000000 00:00 0 
+7f76a52cd000-7f76a52d0000 ---p 00000000 00:00 0 
+7f76a52d0000-7f76a53ce000 rw-p 00000000 00:00 0 
+7f76a53ce000-7f76a53d1000 ---p 00000000 00:00 0 
+7f76a53d1000-7f76a54cf000 rw-p 00000000 00:00 0 
+7f76a54cf000-7f76a54d2000 ---p 00000000 00:00 0 
+7f76a54d2000-7f76a55d0000 rw-p 00000000 00:00 0 
+7f76a55d0000-7f76a55d3000 ---p 00000000 00:00 0 
+7f76a55d3000-7f76a56d1000 rw-p 00000000 00:00 0 
+7f76a56d1000-7f76a56d4000 ---p 00000000 00:00 0 
+7f76a56d4000-7f76a57d2000 rw-p 00000000 00:00 0 
+7f76a57d2000-7f76a57d5000 ---p 00000000 00:00 0 
+7f76a57d5000-7f76a58d3000 rw-p 00000000 00:00 0 
+7f76a58d3000-7f76a58d6000 ---p 00000000 00:00 0 
+7f76a58d6000-7f76a59d4000 rw-p 00000000 00:00 0 
+7f76a59d4000-7f76a59d7000 ---p 00000000 00:00 0 
+7f76a59d7000-7f76a5ad5000 rw-p 00000000 00:00 0 
+7f76a5ad5000-7f76a5ad8000 ---p 00000000 00:00 0 
+7f76a5ad8000-7f76a5bd6000 rw-p 00000000 00:00 0 
+7f76a5bd6000-7f76a5bd9000 ---p 00000000 00:00 0 
+7f76a5bd9000-7f76a5cd7000 rw-p 00000000 00:00 0 
+7f76a5cd7000-7f76a5cda000 ---p 00000000 00:00 0 
+7f76a5cda000-7f76a5dd8000 rw-p 00000000 00:00 0 
+7f76a5dd8000-7f76a5ddb000 ---p 00000000 00:00 0 
+7f76a5ddb000-7f76a60d9000 rw-p 00000000 00:00 0 
+7f76a60d9000-7f76a60dc000 ---p 00000000 00:00 0 
+7f76a60dc000-7f76a61da000 rw-p 00000000 00:00 0 
+7f76a61da000-7f76a61dd000 ---p 00000000 00:00 0 
+7f76a61dd000-7f76a62db000 rw-p 00000000 00:00 0 
+7f76a62db000-7f76a62de000 ---p 00000000 00:00 0 
+7f76a62de000-7f76a63dc000 rw-p 00000000 00:00 0 
+7f76a63dc000-7f76a63df000 ---p 00000000 00:00 0 
+7f76a63df000-7f76a64dd000 rw-p 00000000 00:00 0 
+7f76a64dd000-7f76a64e0000 ---p 00000000 00:00 0 
+7f76a64e0000-7f76a65de000 rw-p 00000000 00:00 0 
+7f76a65de000-7f76a65e1000 ---p 00000000 00:00 0 
+7f76a65e1000-7f76a66df000 rw-p 00000000 00:00 0 
+7f76a66df000-7f76a66e2000 ---p 00000000 00:00 0 
+7f76a66e2000-7f76a67e0000 rw-p 00000000 00:00 0 
+7f76a67e0000-7f76a67e3000 ---p 00000000 00:00 0 
+7f76a67e3000-7f76a68e1000 rw-p 00000000 00:00 0 
+7f76a68e1000-7f76a68e4000 ---p 00000000 00:00 0 
+7f76a68e4000-7f76a69e2000 rw-p 00000000 00:00 0 
+7f76a69e2000-7f76a69e5000 ---p 00000000 00:00 0 
+7f76a69e5000-7f76a6ae3000 rw-p 00000000 00:00 0 
+7f76a6ae3000-7f76a6ae6000 ---p 00000000 00:00 0 
+7f76a6ae6000-7f76a6de4000 rw-p 00000000 00:00 0 
+7f76a6de4000-7f76a6fe4000 rw-p 00000000 00:00 0 
+7f76a6fe4000-7f76a6fe7000 ---p 00000000 00:00 0 
+7f76a6fe7000-7f76a70e5000 rw-p 00000000 00:00 0 
+7f76a70e5000-7f76a70e8000 ---p 00000000 00:00 0 
+7f76a70e8000-7f76a71e6000 rw-p 00000000 00:00 0 
+7f76a71e6000-7f76a71e9000 ---p 00000000 00:00 0 
+7f76a71e9000-7f76a72e7000 rw-p 00000000 00:00 0 
+7f76a72e7000-7f76a72ea000 ---p 00000000 00:00 0 
+7f76a72ea000-7f76a73e8000 rw-p 00000000 00:00 0 
+7f76a73e8000-7f76a73eb000 ---p 00000000 00:00 0 
+7f76a73eb000-7f76a74e9000 rw-p 00000000 00:00 0 
+7f76a74e9000-7f76a74ec000 ---p 00000000 00:00 0 
+7f76a74ec000-7f76a75ea000 rw-p 00000000 00:00 0 
+7f76a75ea000-7f76a75ed000 ---p 00000000 00:00 0 
+7f76a75ed000-7f76a76eb000 rw-p 00000000 00:00 0 
+7f76a76eb000-7f76a76ee000 ---p 00000000 00:00 0 
+7f76a76ee000-7f76a79ec000 rw-p 00000000 00:00 0 
+7f76a79ec000-7f76a79ef000 ---p 00000000 00:00 0 
+7f76a79ef000-7f76a7aed000 rw-p 00000000 00:00 0 
+7f76a7aed000-7f76a7afe000 r-xp 00000000 08:12 531437                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f76a7afe000-7f76a7cfd000 ---p 00011000 08:12 531437                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f76a7cfd000-7f76a7cfe000 r--p 00010000 08:12 531437                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f76a7cfe000-7f76a7cff000 rw-p 00011000 08:12 531437                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+7f76a7cff000-7f76a7d02000 ---p 00000000 00:00 0 
+7f76a7d02000-7f76a8000000 rw-p 00000000 00:00 0 
+7f76a8000000-7f76a803c000 rw-p 00000000 00:00 0 
+7f76a803c000-7f76ac000000 ---p 00000000 00:00 0 
+7f76ac000000-7f76ac026000 rw-p 00000000 00:00 0 
+7f76ac026000-7f76b0000000 ---p 00000000 00:00 0 
+7f76b0000000-7f76b002e000 rw-p 00000000 00:00 0 
+7f76b002e000-7f76b4000000 ---p 00000000 00:00 0 
+7f76b4000000-7f76b4028000 rw-p 00000000 00:00 0 
+7f76b4028000-7f76b8000000 ---p 00000000 00:00 0 
+7f76b8000000-7f76b9ae9000 rw-p 00000000 00:00 0 
+7f76b9ae9000-7f76bc000000 ---p 00000000 00:00 0 
+7f76bc000000-7f76bd579000 rw-p 00000000 00:00 0 
+7f76bd579000-7f76c0000000 ---p 00000000 00:00 0 
+7f76c0000000-7f76c196a000 rw-p 00000000 00:00 0 
+7f76c196a000-7f76c4000000 ---p 00000000 00:00 0 
+7f76c4000000-7f76c5768000 rw-p 00000000 00:00 0 
+7f76c5768000-7f76c8000000 ---p 00000000 00:00 0 
+7f76c8000000-7f76c802c000 rw-p 00000000 00:00 0 
+7f76c802c000-7f76cc000000 ---p 00000000 00:00 0 
+7f76cc000000-7f76cc028000 rw-p 00000000 00:00 0 
+7f76cc028000-7f76d0000000 ---p 00000000 00:00 0 
+7f76d0000000-7f76d002f000 rw-p 00000000 00:00 0 
+7f76d002f000-7f76d4000000 ---p 00000000 00:00 0 
+7f76d4028000-7f76d402b000 r--s 0001a000 08:12 531450                     /usr/lib/jvm/java-8-oracle/jre/lib/jce.jar
+7f76d402b000-7f76d4030000 r--s 002f9000 08:12 531215                     /usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar
+7f76d4030000-7f76d4031000 r-xp 00000000 08:12 531419                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjaas_unix.so
+7f76d4031000-7f76d4230000 ---p 00001000 08:12 531419                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjaas_unix.so
+7f76d4230000-7f76d4231000 r--p 00000000 08:12 531419                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjaas_unix.so
+7f76d4231000-7f76d4232000 rw-p 00001000 08:12 531419                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjaas_unix.so
+7f76d4232000-7f76d4235000 ---p 00000000 00:00 0 
+7f76d4235000-7f76d4333000 rw-p 00000000 00:00 0 
+7f76d4333000-7f76d4336000 ---p 00000000 00:00 0 
+7f76d4336000-7f76d456c000 rw-p 00000000 00:00 0 
+7f76d456c000-7f76d4574000 r-xp 00000000 08:12 531442                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f76d4574000-7f76d4774000 ---p 00008000 08:12 531442                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f76d4774000-7f76d4775000 r--p 00008000 08:12 531442                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f76d4775000-7f76d4776000 rw-p 00009000 08:12 531442                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+7f76d4776000-7f76d4976000 rw-p 00000000 00:00 0 
+7f76d4976000-7f76d498d000 r-xp 00000000 08:12 6820836                    /lib/x86_64-linux-gnu/libresolv-2.27.so
+7f76d498d000-7f76d4b8d000 ---p 00017000 08:12 6820836                    /lib/x86_64-linux-gnu/libresolv-2.27.so
+7f76d4b8d000-7f76d4b8e000 r--p 00017000 08:12 6820836                    /lib/x86_64-linux-gnu/libresolv-2.27.so
+7f76d4b8e000-7f76d4b8f000 rw-p 00018000 08:12 6820836                    /lib/x86_64-linux-gnu/libresolv-2.27.so
+7f76d4b8f000-7f76d4b91000 rw-p 00000000 00:00 0 
+7f76d4b91000-7f76d4b96000 r-xp 00000000 08:12 6820785                    /lib/x86_64-linux-gnu/libnss_dns-2.27.so
+7f76d4b96000-7f76d4d96000 ---p 00005000 08:12 6820785                    /lib/x86_64-linux-gnu/libnss_dns-2.27.so
+7f76d4d96000-7f76d4d97000 r--p 00005000 08:12 6820785                    /lib/x86_64-linux-gnu/libnss_dns-2.27.so
+7f76d4d97000-7f76d4d98000 rw-p 00006000 08:12 6820785                    /lib/x86_64-linux-gnu/libnss_dns-2.27.so
+7f76d4d98000-7f76d4d9a000 r-xp 00000000 08:12 6820793                    /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f76d4d9a000-7f76d4f99000 ---p 00002000 08:12 6820793                    /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f76d4f99000-7f76d4f9a000 r--p 00001000 08:12 6820793                    /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f76d4f9a000-7f76d4f9b000 rw-p 00002000 08:12 6820793                    /lib/x86_64-linux-gnu/libnss_mdns4_minimal.so.2
+7f76d4f9b000-7f76d4fae000 r--s 00345000 08:12 531255                     /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar
+7f76d4fae000-7f76d4fb3000 r--s 000a0000 08:12 531274                     /usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar
+7f76d4fb3000-7f76d4fc9000 r-xp 00000000 08:12 531434                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f76d4fc9000-7f76d51c8000 ---p 00016000 08:12 531434                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f76d51c8000-7f76d51c9000 r--p 00015000 08:12 531434                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f76d51c9000-7f76d51ca000 rw-p 00016000 08:12 531434                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+7f76d51ca000-7f76d53ca000 rw-p 00000000 00:00 0 
+7f76d53ca000-7f76d53db000 r--s 00096000 08:12 3936919                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-mesos_2.11-2.4.0.jar
+7f76d53db000-7f76d53df000 r--s 0000c000 08:12 3936862                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/validation-api-1.1.0.Final.jar
+7f76d53df000-7f76d53eb000 r--s 00068000 08:12 3936893                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/scala-parser-combinators_2.11-1.1.0.jar
+7f76d53eb000-7f76d53f2000 r--s 00049000 08:12 3936922                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/httpcore-4.4.10.jar
+7f76d53f2000-7f76d53fd000 r--s 000b9000 08:12 3936955                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/janino-3.0.9.jar
+7f76d53fd000-7f76d53ff000 r--s 00001000 08:12 3936907                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/logging-interceptor-3.8.1.jar
+7f76d53ff000-7f76d5411000 r--s 00097000 08:12 3936986                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/apacheds-kerberos-codec-2.0.0-M15.jar
+7f76d5411000-7f76d5413000 r--s 00012000 08:12 3937011                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/api-util-1.0.0-M20.jar
+7f76d5413000-7f76d541e000 r--s 000bc000 08:12 3936991                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/orc-mapreduce-1.5.2-nohive.jar
+7f76d541e000-7f76d5421000 r--s 00026000 08:12 3936931                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-yarn-client-2.7.3.jar
+7f76d5421000-7f76d5423000 r--s 00238000 08:12 3936983                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/zstd-jni-1.3.2-2.jar
+7f76d5423000-7f76d5428000 r--s 00035000 08:12 3936963                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/chill_2.11-0.9.3.jar
+7f76d5428000-7f76d548b000 r--s 004de000 08:12 3937007                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hive-metastore-1.2.1.spark2.jar
+7f76d548b000-7f76d548d000 r--s 00007000 08:12 3936870                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/zjsonpatch-0.3.0.jar
+7f76d548d000-7f76d5492000 r--s 0002a000 08:12 3936886                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-beanutils-1.7.0.jar
+7f76d5492000-7f76d54df000 r--s 0041c000 08:12 3937047                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/scala-reflect-2.11.12.jar
+7f76d54df000-7f76d54f8000 r--s 00150000 08:12 3936996                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/htrace-core-3.1.0-incubating.jar
+7f76d54f8000-7f76d5507000 r--s 00095000 08:12 3937049                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-yarn_2.11-2.4.0.jar
+7f76d5507000-7f76d550b000 r--s 00035000 08:12 3936946                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-core-asl-1.9.13.jar
+7f76d550b000-7f76d551f000 r--s 0016d000 08:12 3937013                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/orc-core-1.5.2-nohive.jar
+7f76d551f000-7f76d5520000 r--s 00004000 08:12 3936884                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/eigenbase-properties-1.1.5.jar
+7f76d5520000-7f76d5557000 r--s 00325000 08:12 3936912                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/calcite-core-1.2.0-incubating.jar
+7f76d5557000-7f76d555b000 r--s 0001a000 08:12 3937037                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/metrics-core-3.1.5.jar
+7f76d555b000-7f76d5569000 r--s 00089000 08:12 3936948                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/json4s-scalap_2.11-3.5.3.jar
+7f76d5569000-7f76d557f000 r--s 001a4000 08:12 3936999                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/datanucleus-rdbms-3.2.9.jar
+7f76d557f000-7f76d5583000 r--s 00019000 08:12 3936945                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/javax.ws.rs-api-2.0.1.jar
+7f76d5583000-7f76d5587000 r--s 0002a000 08:12 3937029                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/breeze-macros_2.11-0.13.2.jar
+7f76d5587000-7f76d5594000 r--s 000a0000 08:12 3936872                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-graphx_2.11-2.4.0.jar
+7f76d5594000-7f76d559c000 r--s 00059000 08:12 3936984                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/javolution-5.5.1.jar
+7f76d559c000-7f76d559d000 r--s 00002000 08:12 3936911                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/slf4j-log4j12-1.7.16.jar
+7f76d559d000-7f76d559f000 r--s 00009000 08:12 3936890                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-module-paranamer-2.7.9.jar
+7f76d559f000-7f76d55a1000 r--s 0000e000 08:12 3936961                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/oro-2.0.8.jar
+7f76d55a1000-7f76d55a3000 r--s 00008000 08:12 3936856                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/metrics-jvm-3.1.5.jar
+7f76d55a3000-7f76d55ac000 r--s 0006f000 08:12 3936901                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/log4j-1.2.17.jar
+7f76d55ac000-7f76d55ad000 r--s 00002000 08:12 3936942                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jpam-1.1.jar
+7f76d55ad000-7f76d55d1000 r--s 001cd000 08:12 3936976                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-math3-3.4.1.jar
+7f76d55d1000-7f76d55d7000 r--s 00045000 08:12 3937012                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-httpclient-3.1.jar
+7f76d55d7000-7f76d55d9000 r--s 0000b000 08:12 3936845                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/arrow-format-0.10.0.jar
+7f76d55d9000-7f76d55da000 r--s 00002000 08:12 3937061                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/flatbuffers-1.2.0-3f79e055.jar
+7f76d55da000-7f76d55dd000 r--s 00014000 08:12 3936863                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/json4s-ast_2.11-3.5.3.jar
+7f76d55dd000-7f76d5699000 r--s 008fb000 08:12 3936972                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-catalyst_2.11-2.4.0.jar
+7f76d5699000-7f76d569a000 r--s 00006000 08:12 3936868                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/orc-shims-1.5.2.jar
+7f76d569a000-7f76d56a2000 r--s 0006e000 08:12 3936844                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-lang3-3.5.jar
+7f76d56a2000-7f76d56a3000 r--s 00009000 08:12 3937036                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hive-cli-1.2.1.spark2.jar
+7f76d56a3000-7f76d56be000 r--s 0012b000 08:12 3937018                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-hive_2.11-2.4.0.jar
+7f76d56be000-7f76d56c5000 r--s 00046000 08:12 3936990                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/libfb303-0.9.3.jar
+7f76d56c5000-7f76d56c6000 r--s 00003000 08:12 3937063                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/generex-1.0.1.jar
+7f76d56c6000-7f76d56ca000 r--s 0002a000 08:12 3936875                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/avro-mapred-1.8.2-hadoop2.jar
+7f76d56ca000-7f76d56d0000 r--s 00063000 08:12 3936937                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jodd-core-3.5.2.jar
+7f76d56d0000-7f76d56d4000 r--s 00015000 08:12 3936903                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/xz-1.5.jar
+7f76d56d4000-7f76d56d5000 r--s 00000000 08:12 3937027                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/macro-compat_2.11-1.1.1.jar
+7f76d56d5000-7f76d56d7000 r--s 0000b000 08:12 3937000                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-unsafe_2.11-2.4.0.jar
+7f76d56d7000-7f76d56df000 r--s 0007b000 08:12 3937019                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/protobuf-java-2.5.0.jar
+7f76d56df000-7f76d56e5000 r--s 0002c000 08:12 3936891                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jdo-api-3.0.1.jar
+7f76d56e5000-7f76d56e7000 r--s 00004000 08:12 3936979                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/stax-api-1.0-2.jar
+7f76d56e7000-7f76d56e8000 r--s 00008000 08:12 3936995                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/machinist_2.11-0.6.1.jar
+7f76d56e8000-7f76d56ea000 r--s 0000f000 08:12 3936873                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/curator-client-2.7.1.jar
+7f76d56ea000-7f76d56eb000 r--s 00004000 08:12 3936885                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-jaxrs-1.9.13.jar
+7f76d56eb000-7f76d56ed000 r--s 00010000 08:12 3936874                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jersey-media-jaxb-2.22.2.jar
+7f76d56ed000-7f76d56f1000 r--s 00029000 08:12 3937035                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-mllib-local_2.11-2.4.0.jar
+7f76d56f1000-7f76d5705000 r--s 000ec000 08:12 3937020                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/parquet-jackson-1.10.0.jar
+7f76d5705000-7f76d5713000 r--s 000a3000 08:12 3936940                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/parquet-format-2.4.0.jar
+7f76d5713000-7f76d5719000 r--s 0003c000 08:12 3936938                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/snakeyaml-1.15.jar
+7f76d5719000-7f76d5723000 r--s 0005c000 08:12 3936987                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/kubernetes-client-3.0.0.jar
+7f76d5723000-7f76d572d000 r--s 000a5000 08:12 3937001                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/javassist-3.18.1-GA.jar
+7f76d572d000-7f76d5735000 r--s 00066000 08:12 3936958                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/apache-log4j-extras-1.2.17.jar
+7f76d5735000-7f76d577b000 r--s 00317000 08:12 3937031                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/shapeless_2.11-2.3.2.jar
+7f76d577b000-7f76d577f000 r--s 0002f000 08:12 3937024                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-beanutils-core-1.8.0.jar
+7f76d577f000-7f76d578a000 r--s 00062000 08:12 3937003                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/calcite-linq4j-1.2.0-incubating.jar
+7f76d578a000-7f76d5795000 r--s 000b0000 08:12 3936936                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jtransforms-2.4.0.jar
+7f76d5795000-7f76d5798000 r--s 00014000 08:12 3936859                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/super-csv-2.2.0.jar
+7f76d5798000-7f76d5870000 r--s 00d92000 08:12 3936913                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/breeze_2.11-0.13.2.jar
+7f76d5870000-7f76d587a000 r--s 0009a000 08:12 3937016                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/scala-xml_2.11-1.0.5.jar
+7f76d587a000-7f76d588a000 r--s 00133000 08:12 3937060                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/arrow-vector-0.10.0.jar
+7f76d588a000-7f76d588c000 r--s 0001f000 08:12 3936899                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-crypto-1.0.0.jar
+7f76d588c000-7f76d58a2000 r--s 00124000 08:12 3937051                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/ivy-2.4.0.jar
+7f76d58a2000-7f76d58ba000 r--s 00115000 08:12 3936993                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/xercesImpl-2.9.1.jar
+7f76d58ba000-7f76d58bb000 r--s 00003000 08:12 3937048                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/xmlenc-0.52.jar
+7f76d58bb000-7f76d58c0000 r--s 00041000 08:12 3936932                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-lang-2.6.jar
+7f76d58c0000-7f76d58c3000 r--s 00025000 08:12 3936967                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-dbcp-1.4.jar
+7f76d58c3000-7f76d58c8000 r--s 00041000 08:12 3936959                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/xbean-asm6-shaded-4.8.jar
+7f76d58c8000-7f76d58c9000 r--s 0000b000 08:12 3937053                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/snappy-0.2.jar
+7f76d58c9000-7f76d58e2000 r--s 00164000 08:12 3936947                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-mapreduce-client-core-2.7.3.jar
+7f76d58e2000-7f76d58e6000 r--s 00028000 08:12 3937050                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jetty-util-6.1.26.jar
+7f76d58e6000-7f76d5916000 r--s 001e3000 08:12 3936910                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-streaming_2.11-2.4.0.jar
+7f76d5916000-7f76d591c000 r--s 0004c000 08:12 3936876                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/antlr4-runtime-4.7.jar
+7f76d591c000-7f76d591e000 r--s 00004000 08:12 3936923                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/metrics-graphite-3.1.5.jar
+7f76d591e000-7f76d5922000 r--s 00020000 08:12 3936934                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-digester-1.8.jar
+7f76d5922000-7f76d5923000 r--s 00004000 08:12 3936908                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/opencsv-2.3.jar
+7f76d5923000-7f76d592b000 r--s 0003b000 08:12 3936960                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/curator-recipes-2.7.1.jar
+7f76d592b000-7f76d592d000 r--s 0000e000 08:12 3937015                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/guice-servlet-3.0.jar
+7f76d592d000-7f76d592f000 r--s 00000000 08:12 3936900                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/aopalliance-1.0.jar
+7f76d592f000-7f76d5931000 r--s 0000e000 08:12 3936847                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-mapreduce-client-jobclient-2.7.3.jar
+7f76d5931000-7f76d59f8000 r--s 008a5000 08:12 3937034                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-sql_2.11-2.4.0.jar
+7f76d59f8000-7f76d59fc000 r--s 00025000 08:12 3936992                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jersey-client-2.22.2.jar
+7f76d59fc000-7f76d5a01000 r--s 0002a000 08:12 3936982                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/gson-2.2.4.jar
+7f76d5a01000-7f76d5a09000 r--s 0005d000 08:12 3936943                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/kryo-shaded-4.0.2.jar
+7f76d5a09000-7f76d5a0d000 r--s 00029000 08:12 3936904                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hk2-locator-2.4.0-b34.jar
+7f76d5a0d000-7f76d5a0f000 r--s 00027000 08:12 3936980                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/core-1.1.2.jar
+7f76d5a0f000-7f76d5a16000 r--s 0003f000 08:12 3936981                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-codec-1.10.jar
+7f76d5a16000-7f76d5a44000 r--s 0021a000 08:12 3937023                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-network-common_2.11-2.4.0.jar
+7f76d5a44000-7f76d5a7a000 r--s 0031c000 08:12 3936966                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-common-2.7.3.jar
+7f76d5a7a000-7f76d5a9b000 r--s 00177000 08:12 3936855                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hppc-0.7.2.jar
+7f76d5a9b000-7f76d5aa0000 r--s 00068000 08:12 3936929                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/antlr-2.7.7.jar
+7f76d5aa0000-7f76d5aa2000 r--s 00005000 08:12 3937056                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/stax-api-1.0.1.jar
+7f76d5aa2000-7f76d5aa4000 r--s 00003000 08:12 3937064                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/JavaEWAH-0.3.2.jar
+7f76d5aa4000-7f76d5aa7000 r--s 00015000 08:12 3936902                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-pool-1.5.4.jar
+7f76d5aa7000-7f76d5b3a000 r--s 00715000 08:12 3936964                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-mllib_2.11-2.4.0.jar
+7f76d5b3a000-7f76d5b3b000 r--s 00003000 08:12 3936997                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jta-1.1.jar
+7f76d5b3b000-7f76d5b3f000 r--s 0001a000 08:12 3936896                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hk2-utils-2.4.0-b34.jar
+7f76d5b3f000-7f76d5b41000 r--s 0000a000 08:12 3936848                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/json4s-jackson_2.11-3.5.3.jar
+7f76d5b41000-7f76d5b47000 r--s 0005c000 08:12 3936879                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/okhttp-3.8.1.jar
+7f76d5b47000-7f76d5b49000 r--s 0000e000 08:12 3937033                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-logging-1.1.3.jar
+7f76d5b49000-7f76d5b4c000 r--s 00015000 08:12 3937066                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/javax.servlet-api-3.1.0.jar
+7f76d5b4c000-7f76d5b4e000 r--s 0000b000 08:12 3936949                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-kvstore_2.11-2.4.0.jar
+7f76d5b4e000-7f76d5b56000 r--s 0005b000 08:12 3936985                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/univocity-parsers-2.7.3.jar
+7f76d5b56000-7f76d5b65000 r--s 0009f000 08:12 3936858                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/guice-3.0.jar
+7f76d5b65000-7f76d5b68000 r--s 00022000 08:12 3936956                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/stringtemplate-3.2.1.jar
+7f76d5b68000-7f76d5b6a000 r--s 00002000 08:12 3936918                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/aopalliance-repackaged-2.4.0-b34.jar
+7f76d5b6a000-7f76d5b6c000 r--s 001eb000 08:12 3936894                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/snappy-java-1.1.7.1.jar
+7f76d5b6c000-7f76d5b70000 r--s 00036000 08:12 3936883                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/ST4-4.0.4.jar
+7f76d5b70000-7f76d5b74000 r--s 0003c000 08:12 3937010                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-core-2.6.7.jar
+7f76d5b74000-7f76d5b75000 r--s 00003000 08:12 3936889                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-tags_2.11-2.4.0.jar
+7f76d5b75000-7f76d5b80000 r--s 000c5000 08:12 3937065                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/parquet-encoding-1.10.0.jar
+7f76d5b80000-7f76d5b83000 r--s 00017000 08:12 3936926                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jaxb-api-2.2.2.jar
+7f76d5b83000-7f76d5b85000 r--s 00020000 08:12 3937022                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hive-beeline-1.2.1.spark2.jar
+7f76d5b85000-7f76d5bae000 r--s 001ee000 08:12 3936925                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/guava-14.0.1.jar
+7f76d5bae000-7f76d5c19000 r--s 00784000 08:12 3937067                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-hdfs-2.7.3.jar
+7f76d5c19000-7f76d5c1a000 r--s 00006000 08:12 3937046                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-xc-1.9.13.jar
+7f76d5c1a000-7f76d5c1b000 r--s 00009000 08:12 3937044                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/slf4j-api-1.7.16.jar
+7f76d5c1b000-7f76d5c1d000 r--s 00017000 08:12 3936850                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hive-jdbc-1.2.1.spark2.jar
+7f76d5c1d000-7f76d5c2a000 r--s 0009c000 08:12 3937041                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/json4s-core_2.11-3.5.3.jar
+7f76d5c2a000-7f76d5c43000 r--s 000f4000 08:12 3936852                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/parquet-column-1.10.0.jar
+7f76d5c43000-7f76d5c4a000 r--s 0007d000 08:12 3937043                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jetty-6.1.26.jar
+7f76d5c4a000-7f76d5c4c000 r--s 00003000 08:12 3936920                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jcl-over-slf4j-1.7.16.jar
+7f76d5c4c000-7f76d5c4e000 r--s 00006000 08:12 3937021                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-sketch_2.11-2.4.0.jar
+7f76d5c4e000-7f76d5c50000 r--s 0000d000 08:12 3937008                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-yarn-server-web-proxy-2.7.3.jar
+7f76d5c50000-7f76d5c62000 r--s 00112000 08:12 3937055                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/arpack_combined_all-0.1.jar
+7f76d5c62000-7f76d5c64000 r--s 00003000 08:12 3936952                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/api-asn1-api-1.0.0-M20.jar
+7f76d5c64000-7f76d5c66000 r--s 00012000 08:12 3936928                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/compress-lzf-1.0.3.jar
+7f76d5c66000-7f76d5c68000 r--s 00005000 08:12 3936962                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/javax.annotation-api-1.2.jar
+7f76d5c68000-7f76d5c75000 r--s 000af000 08:12 3936977                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/httpclient-4.5.6.jar
+7f76d5c75000-7f76d5c77000 r--s 00012000 08:12 3936895                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/arrow-memory-0.10.0.jar
+7f76d5c77000-7f76d5c79000 r--s 00011000 08:12 3937005                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-launcher_2.11-2.4.0.jar
+7f76d5c79000-7f76d5c7a000 r--s 00004000 08:12 3936998                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/osgi-resource-locator-1.0.1.jar
+7f76d5c7a000-7f76d5c7c000 r--s 00008000 08:12 3936974                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-compiler-3.0.9.jar
+7f76d5c7c000-7f76d5c7f000 r--s 00015000 08:12 3936853                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/pyrolite-4.13.jar
+7f76d5c7f000-7f76d5c80000 r--s 00003000 08:12 3936917                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/metrics-json-3.1.5.jar
+7f76d5c80000-7f76d5c98000 r--s 000d6000 08:12 3936857                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jersey-guava-2.22.2.jar
+7f76d5c98000-7f76d5c9e000 r--s 00043000 08:12 3936941                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-configuration-1.6.jar
+7f76d5c9e000-7f76d5ca3000 r--s 0004e000 08:12 3936933                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/datanucleus-api-jdo-3.2.6.jar
+7f76d5ca3000-7f76d5cb4000 r--s 00089000 08:12 3936898                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/joda-time-2.9.3.jar
+7f76d5cb4000-7f76d5cb9000 r--s 0003e000 08:12 3936861                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-net-3.1.jar
+7f76d5cb9000-7f76d5cba000 r--s 00006000 08:12 3937006                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-client-2.7.3.jar
+7f76d5cba000-7f76d5cbb000 r--s 00001000 08:12 3937032                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/minlog-1.3.0.jar
+7f76d5cbb000-7f76d5cc9000 r--s 0009d000 08:12 3936930                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jersey-common-2.22.2.jar
+7f76d5cc9000-7f76d5ccc000 r--s 0000b000 08:12 3937040                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/objenesis-2.5.1.jar
+7f76d5ccc000-7f76d5d00000 r--s 00277000 08:12 3936914                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/parquet-hadoop-bundle-1.6.0.jar
+7f76d5d00000-7f76d5d41000 r--s 0035a000 08:12 3936973                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/netty-all-4.1.17.Final.jar
+7f76d5d41000-7f76d5d43000 r--s 00000000 08:12 3936978                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jul-to-slf4j-1.7.16.jar
+7f76d5d43000-7f76d5d49000 r--s 00028000 08:12 3936851                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/curator-framework-2.7.1.jar
+7f76d5d49000-7f76d5d4d000 r--s 0003e000 08:12 3937004                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jline-2.14.6.jar
+7f76d5d4d000-7f76d5d4f000 r--s 00015000 08:12 3937068                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-auth-2.7.3.jar
+7f76d5d4f000-7f76d5d53000 r--s 00025000 08:12 3936921                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/antlr-runtime-3.4.jar
+7f76d5d53000-7f76d5d58000 r--s 00027000 08:12 3937039                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/automaton-1.11-8.jar
+7f76d5d58000-7f76d5d65000 r--s 00071000 08:12 3937038                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-module-scala_2.11-2.6.7.1.jar
+7f76d5d65000-7f76d5d67000 r--s 00007000 08:12 3936953                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/paranamer-2.8.jar
+7f76d5d67000-7f76d5d68000 r--s 00009000 08:12 3936935                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-annotations-2.7.3.jar
+7f76d5d68000-7f76d5d6b000 r--s 0001e000 08:12 3937014                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/aircompressor-0.10.jar
+7f76d5d6b000-7f76d5d78000 r--s 000b1000 08:12 3937017                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-mapreduce-client-common-2.7.3.jar
+7f76d5d78000-7f76d5de3000 r--s 0093d000 08:12 3937009                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spire_2.11-0.13.0.jar
+7f76d5de3000-7f76d5de5000 r--s 00010000 08:12 3936865                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-mapreduce-client-shuffle-2.7.3.jar
+7f76d5de5000-7f76d5e3e000 r--s 00523000 08:12 3937052                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/scala-library-2.11.12.jar
+7f76d5e3e000-7f76d5e5b000 r--s 001d5000 08:12 3936951                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-yarn-api-2.7.3.jar
+7f76d5e5b000-7f76d5e5e000 r--s 00009000 08:12 3936887                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-annotations-2.6.7.jar
+7f76d5e5e000-7f76d5e5f000 r--s 00013000 08:12 3936970                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/okio-1.13.0.jar
+7f76d5e5f000-7f76d5e66000 r--s 00039000 08:12 3937062                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/calcite-avatica-1.2.0-incubating.jar
+7f76d5e66000-7f76d5f5a000 r--s 00be3000 08:12 3936969                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-core_2.11-2.4.0.jar
+7f76d5f5a000-7f76d6000000 r--s 0060b000 08:12 3936888                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/kubernetes-model-2.0.0.jar
+7f76d6000000-7f76f4000000 rw-p 00000000 00:00 0 
+7f76f4000000-7f76f403e000 rw-p 00000000 00:00 0 
+7f76f403e000-7f76f8000000 ---p 00000000 00:00 0 
+7f76f8000000-7f76f8adf000 rw-p 00000000 00:00 0 
+7f76f8adf000-7f76fc000000 ---p 00000000 00:00 0 
+7f76fc000000-7f76fc035000 rw-p 00000000 00:00 0 
+7f76fc035000-7f7700000000 ---p 00000000 00:00 0 
+7f7700000000-7f7700037000 rw-p 00000000 00:00 0 
+7f7700037000-7f7704000000 ---p 00000000 00:00 0 
+7f7704000000-7f7704002000 r--s 0000d000 08:12 3936906                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/chill-java-0.9.3.jar
+7f7704002000-7f7704003000 r--s 0000a000 08:12 3936957                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/apacheds-i18n-2.0.0-M15.jar
+7f7704003000-7f770401c000 r--s 0012c000 08:12 3936924                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/netty-3.9.9.Final.jar
+7f770401c000-7f7704028000 r--s 00077000 08:12 3936877                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-kubernetes_2.11-2.4.0.jar
+7f7704028000-7f770402a000 r--s 0000f000 08:12 3937028                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/activation-1.1.1.jar
+7f770402a000-7f770402c000 r--s 00009000 08:12 3936939                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-cli-1.2.jar
+7f770402c000-7f770404f000 rw-p 00000000 00:00 0 
+7f770404f000-7f7704050000 r--s 00007000 08:12 3936878                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-module-jaxb-annotations-2.6.7.jar
+7f7704050000-7f7704054000 r--s 00014000 08:12 3936988                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/parquet-common-1.10.0.jar
+7f7704054000-7f7704058000 r--s 0001e000 08:12 3936897                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-repl_2.11-2.4.0.jar
+7f7704058000-7f770405b000 r--s 0000e000 08:12 3936869                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jersey-container-servlet-core-2.22.2.jar
+7f770405b000-7f7704061000 r--s 00040000 08:12 3936975                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/parquet-hadoop-1.10.0.jar
+7f7704061000-7f770406a000 r--s 00046000 08:12 3937059                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-dataformat-yaml-2.6.7.jar
+7f770406a000-7f770406d000 r--s 0001e000 08:12 3936866                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/avro-ipc-1.8.2.jar
+7f770406d000-7f770406f000 r--s 00001000 08:12 3936881                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-tags_2.11-2.4.0-tests.jar
+7f770406f000-7f770407b000 r--s 000b6000 08:12 3936944                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/zookeeper-3.4.6.jar
+7f770407b000-7f7704082000 r--s 00053000 08:12 3937026                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-compress-1.8.1.jar
+7f7704082000-7f77040b1000 r--s 002e5000 08:12 3937030                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/derby-10.12.1.1.jar
+7f77040b1000-7f77040c9000 r--s 001b6000 08:12 3936927                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/datanucleus-core-3.2.10.jar
+7f77040c9000-7f77040cc000 r--s 000fd000 08:12 3936880                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/leveldbjni-all-1.8.jar
+7f77040cc000-7f77040e3000 r--s 00183000 08:12 3936846                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-yarn-common-2.7.3.jar
+7f77040e3000-7f77040e8000 r--s 00027000 08:12 3937058                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hk2-api-2.4.0-b34.jar
+7f77040e8000-7f77040f9000 r--s 0010c000 08:12 3936971                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-databind-2.6.7.1.jar
+7f77040f9000-7f770411a000 r--s 0015c000 08:12 3936950                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/avro-1.8.2.jar
+7f770411a000-7f7704128000 r--s 000b1000 08:12 3936882                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-mapper-asl-1.9.13.jar
+7f7704128000-7f770412f000 r--s 00058000 08:12 3936989                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-yarn-server-common-2.7.3.jar
+7f770412f000-7f77041d8000 r--s 00a4f000 08:12 3936965                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hive-exec-1.2.1.spark2.jar
+7f77041d8000-7f77041e5000 r--s 00083000 08:12 3936994                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-collections-3.2.2.jar
+7f77041e5000-7f77041ef000 r--s 0007b000 08:12 3937057                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-mapreduce-client-app-2.7.3.jar
+7f77041ef000-7f7704230000 r--s 006c0000 08:12 3936968                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/mesos-1.4.0-shaded-protobuf.jar
+7f7704230000-7f7704252000 r--s 0019a000 08:12 3936915                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-hive-thriftserver_2.11-2.4.0.jar
+7f7704252000-7f7704268000 r--s 000d3000 08:12 3936892                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jersey-server-2.22.2.jar
+7f7704268000-7f770428d000 rw-p 00000000 00:00 0 
+7f770428d000-7f770439a000 r--s 00dd7000 08:12 3936871                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/scala-compiler-2.11.12.jar
+7f770439a000-7f770439b000 ---p 00000000 00:00 0 
+7f770439b000-7f770449b000 rw-p 00000000 00:00 0 
+7f770449b000-7f770449e000 ---p 00000000 00:00 0 
+7f770449e000-7f770459c000 rw-p 00000000 00:00 0 
+7f770459c000-7f770459d000 ---p 00000000 00:00 0 
+7f770459d000-7f77045a0000 ---p 00000000 00:00 0 
+7f77045a0000-7f770469d000 rw-p 00000000 00:00 0 
+7f770469d000-7f770469e000 ---p 00000000 00:00 0 
+7f770469e000-7f77046a1000 ---p 00000000 00:00 0 
+7f77046a1000-7f770479e000 rw-p 00000000 00:00 0 
+7f770479e000-7f770479f000 ---p 00000000 00:00 0 
+7f770479f000-7f77047a2000 ---p 00000000 00:00 0 
+7f77047a2000-7f770489f000 rw-p 00000000 00:00 0 
+7f770489f000-7f77048a0000 ---p 00000000 00:00 0 
+7f77048a0000-7f77048a3000 ---p 00000000 00:00 0 
+7f77048a3000-7f77049a0000 rw-p 00000000 00:00 0 
+7f77049a0000-7f77049a3000 ---p 00000000 00:00 0 
+7f77049a3000-7f7704aa1000 rw-p 00000000 00:00 0 
+7f7704aa1000-7f77055d3000 r--p 00000000 08:12 4070085                    /usr/lib/locale/locale-archive
+7f77055d3000-7f77055d6000 ---p 00000000 00:00 0 
+7f77055d6000-7f77056d4000 rw-p 00000000 00:00 0 
+7f77056d4000-7f77056d7000 ---p 00000000 00:00 0 
+7f77056d7000-7f77057d5000 rw-p 00000000 00:00 0 
+7f77057d5000-7f77057d6000 ---p 00000000 00:00 0 
+7f77057d6000-7f7708000000 rw-p 00000000 00:00 0 
+7f7708000000-7f7708039000 rw-p 00000000 00:00 0 
+7f7708039000-7f770c000000 ---p 00000000 00:00 0 
+7f770c000000-7f770c09d000 rw-p 00000000 00:00 0 
+7f770c09d000-7f7710000000 ---p 00000000 00:00 0 
+7f7710000000-7f7710041000 rw-p 00000000 00:00 0 
+7f7710041000-7f7714000000 ---p 00000000 00:00 0 
+7f7714000000-7f7714036000 rw-p 00000000 00:00 0 
+7f7714036000-7f7718000000 ---p 00000000 00:00 0 
+7f7718000000-7f7718049000 rw-p 00000000 00:00 0 
+7f7718049000-7f771c000000 ---p 00000000 00:00 0 
+7f771c000000-7f771d2f9000 rw-p 00000000 00:00 0 
+7f771d2f9000-7f771d4d3000 r--s 03d6c000 08:12 531217                     /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+7f771d4d3000-7f771dcd3000 rw-p 00000000 00:00 0 
+7f771dcd3000-7f771e0a2000 rw-p 00000000 00:00 0 
+7f771e0a2000-7f771f1ff000 ---p 00000000 00:00 0 
+7f771f1ff000-7f771f4a2000 rw-p 00000000 00:00 0 
+7f771f4a2000-7f77205ff000 ---p 00000000 00:00 0 
+7f77205ff000-7f7720fff000 rw-p 00000000 00:00 0 
+7f7720fff000-7f7721000000 rw-p 00000000 00:00 0 
+7f7721000000-7f77247a0000 rwxp 00000000 00:00 0 
+7f77247a0000-7f7730000000 ---p 00000000 00:00 0 
+7f7730000000-7f77311af000 rw-p 00000000 00:00 0 
+7f77311af000-7f7734000000 ---p 00000000 00:00 0 
+7f7734000000-7f7734002000 r--s 00014000 08:12 3937002                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spire-macros_2.11-0.13.0.jar
+7f7734002000-7f7734005000 r--s 0000f000 08:12 3936867                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-network-shuffle_2.11-2.4.0.jar
+7f7734005000-7f7734008000 r--s 00028000 08:12 3937025                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/stream-2.7.0.jar
+7f7734008000-7f773409f000 rw-p 00000000 00:00 0 
+7f773409f000-7f77340a0000 ---p 00000000 00:00 0 
+7f77340a0000-7f77341a0000 rw-p 00000000 00:00 0 
+7f77341a0000-7f77341a1000 ---p 00000000 00:00 0 
+7f77341a1000-7f77342a1000 rw-p 00000000 00:00 0 
+7f77342a1000-7f77342a2000 ---p 00000000 00:00 0 
+7f77342a2000-7f77343a2000 rw-p 00000000 00:00 0 
+7f77343a2000-7f77343a3000 ---p 00000000 00:00 0 
+7f77343a3000-7f77344a3000 rw-p 00000000 00:00 0 
+7f77344a3000-7f77344a4000 ---p 00000000 00:00 0 
+7f77344a4000-7f77345a4000 rw-p 00000000 00:00 0 
+7f77345a4000-7f77345a5000 ---p 00000000 00:00 0 
+7f77345a5000-7f77346a5000 rw-p 00000000 00:00 0 
+7f77346a5000-7f77346a6000 ---p 00000000 00:00 0 
+7f77346a6000-7f77347a6000 rw-p 00000000 00:00 0 
+7f77347a6000-7f77347a7000 ---p 00000000 00:00 0 
+7f77347a7000-7f7734986000 rw-p 00000000 00:00 0 
+7f7734986000-7f7734c67000 ---p 00000000 00:00 0 
+7f7734c67000-7f7734c81000 r-xp 00000000 08:12 531430                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f7734c81000-7f7734e81000 ---p 0001a000 08:12 531430                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f7734e81000-7f7734e82000 r--p 0001a000 08:12 531430                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f7734e82000-7f7734e83000 rw-p 0001b000 08:12 531430                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+7f7734e83000-7f7734e8e000 r-xp 00000000 08:12 6820787                    /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f7734e8e000-7f773508d000 ---p 0000b000 08:12 6820787                    /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f773508d000-7f773508e000 r--p 0000a000 08:12 6820787                    /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f773508e000-7f773508f000 rw-p 0000b000 08:12 6820787                    /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f773508f000-7f7735095000 rw-p 00000000 00:00 0 
+7f7735095000-7f77350ac000 r-xp 00000000 08:12 6820781                    /lib/x86_64-linux-gnu/libnsl-2.27.so
+7f77350ac000-7f77352ab000 ---p 00017000 08:12 6820781                    /lib/x86_64-linux-gnu/libnsl-2.27.so
+7f77352ab000-7f77352ac000 r--p 00016000 08:12 6820781                    /lib/x86_64-linux-gnu/libnsl-2.27.so
+7f77352ac000-7f77352ad000 rw-p 00017000 08:12 6820781                    /lib/x86_64-linux-gnu/libnsl-2.27.so
+7f77352ad000-7f77352af000 rw-p 00000000 00:00 0 
+7f77352af000-7f77352ba000 r-xp 00000000 08:12 6820798                    /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7f77352ba000-7f77354b9000 ---p 0000b000 08:12 6820798                    /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7f77354b9000-7f77354ba000 r--p 0000a000 08:12 6820798                    /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7f77354ba000-7f77354bb000 rw-p 0000b000 08:12 6820798                    /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7f77354bb000-7f77354c3000 r-xp 00000000 08:12 6820783                    /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7f77354c3000-7f77356c3000 ---p 00008000 08:12 6820783                    /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7f77356c3000-7f77356c4000 r--p 00008000 08:12 6820783                    /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7f77356c4000-7f77356c5000 rw-p 00009000 08:12 6820783                    /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7f77356c5000-7f77356f2000 r-xp 00000000 08:12 531424                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f77356f2000-7f77358f1000 ---p 0002d000 08:12 531424                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f77358f1000-7f77358f2000 r--p 0002c000 08:12 531424                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f77358f2000-7f77358f4000 rw-p 0002d000 08:12 531424                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+7f77358f4000-7f7735901000 r-xp 00000000 08:12 531429                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f7735901000-7f7735b00000 ---p 0000d000 08:12 531429                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f7735b00000-7f7735b02000 r--p 0000c000 08:12 531429                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f7735b02000-7f7735b03000 rw-p 0000e000 08:12 531429                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+7f7735b03000-7f7735b0a000 r-xp 00000000 08:12 6820838                    /lib/x86_64-linux-gnu/librt-2.27.so
+7f7735b0a000-7f7735d09000 ---p 00007000 08:12 6820838                    /lib/x86_64-linux-gnu/librt-2.27.so
+7f7735d09000-7f7735d0a000 r--p 00006000 08:12 6820838                    /lib/x86_64-linux-gnu/librt-2.27.so
+7f7735d0a000-7f7735d0b000 rw-p 00007000 08:12 6820838                    /lib/x86_64-linux-gnu/librt-2.27.so
+7f7735d0b000-7f7735ea8000 r-xp 00000000 08:12 6820760                    /lib/x86_64-linux-gnu/libm-2.27.so
+7f7735ea8000-7f77360a7000 ---p 0019d000 08:12 6820760                    /lib/x86_64-linux-gnu/libm-2.27.so
+7f77360a7000-7f77360a8000 r--p 0019c000 08:12 6820760                    /lib/x86_64-linux-gnu/libm-2.27.so
+7f77360a8000-7f77360a9000 rw-p 0019d000 08:12 6820760                    /lib/x86_64-linux-gnu/libm-2.27.so
+7f77360a9000-7f7736d8b000 r-xp 00000000 08:12 531406                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f7736d8b000-7f7736f8b000 ---p 00ce2000 08:12 531406                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f7736f8b000-7f7737021000 r--p 00ce2000 08:12 531406                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f7737021000-7f7737052000 rw-p 00d78000 08:12 531406                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+7f7737052000-7f773708d000 rw-p 00000000 00:00 0 
+7f773708d000-7f7737274000 r-xp 00000000 08:12 6820697                    /lib/x86_64-linux-gnu/libc-2.27.so
+7f7737274000-7f7737474000 ---p 001e7000 08:12 6820697                    /lib/x86_64-linux-gnu/libc-2.27.so
+7f7737474000-7f7737478000 r--p 001e7000 08:12 6820697                    /lib/x86_64-linux-gnu/libc-2.27.so
+7f7737478000-7f773747a000 rw-p 001eb000 08:12 6820697                    /lib/x86_64-linux-gnu/libc-2.27.so
+7f773747a000-7f773747e000 rw-p 00000000 00:00 0 
+7f773747e000-7f7737481000 r-xp 00000000 08:12 6820720                    /lib/x86_64-linux-gnu/libdl-2.27.so
+7f7737481000-7f7737680000 ---p 00003000 08:12 6820720                    /lib/x86_64-linux-gnu/libdl-2.27.so
+7f7737680000-7f7737681000 r--p 00002000 08:12 6820720                    /lib/x86_64-linux-gnu/libdl-2.27.so
+7f7737681000-7f7737682000 rw-p 00003000 08:12 6820720                    /lib/x86_64-linux-gnu/libdl-2.27.so
+7f7737682000-7f7737699000 r-xp 00000000 08:12 531079                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f7737699000-7f7737898000 ---p 00017000 08:12 531079                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f7737898000-7f7737899000 r--p 00016000 08:12 531079                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f7737899000-7f773789a000 rw-p 00017000 08:12 531079                     /usr/lib/jvm/java-8-oracle/lib/amd64/jli/libjli.so
+7f773789a000-7f77378b4000 r-xp 00000000 08:12 6820830                    /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f77378b4000-7f7737ab3000 ---p 0001a000 08:12 6820830                    /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f7737ab3000-7f7737ab4000 r--p 00019000 08:12 6820830                    /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f7737ab4000-7f7737ab5000 rw-p 0001a000 08:12 6820830                    /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f7737ab5000-7f7737ab9000 rw-p 00000000 00:00 0 
+7f7737ab9000-7f7737ae0000 r-xp 00000000 08:12 6820669                    /lib/x86_64-linux-gnu/ld-2.27.so
+7f7737ae0000-7f7737ae2000 r--s 0001c000 08:12 3937042                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/py4j-0.10.7.jar
+7f7737ae2000-7f7737ae4000 r--s 00003000 08:12 3936849                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jersey-container-servlet-2.22.2.jar
+7f7737ae4000-7f7737ae5000 r--s 00001000 08:12 3936916                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/javax.inject-2.4.0-b34.jar
+7f7737ae5000-7f7737ae8000 r--s 00006000 08:12 3937054                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jsr305-1.3.9.jar
+7f7737ae8000-7f7737aeb000 r--s 0002f000 08:12 3936954                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/RoaringBitmap-0.5.11.jar
+7f7737aeb000-7f7737af1000 r--s 00034000 08:12 3936905                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/libthrift-0.9.3.jar
+7f7737af1000-7f7737bc3000 rw-p 00000000 00:00 0 
+7f7737bc3000-7f7737bc4000 ---p 00000000 00:00 0 
+7f7737bc4000-7f7737bc7000 ---p 00000000 00:00 0 
+7f7737bc7000-7f7737cc8000 rw-p 00000000 00:00 0 
+7f7737cc8000-7f7737ccb000 r--s 00058000 08:12 3936909                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/lz4-java-1.4.0.jar
+7f7737ccb000-7f7737ccf000 r--s 0002a000 08:12 3937045                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-io-2.4.jar
+7f7737ccf000-7f7737cd2000 r--s 00019000 08:12 3936854                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/bonecp-0.8.0.RELEASE.jar
+7f7737cd2000-7f7737cd5000 r--s 00016000 08:12 3936860                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jsp-api-2.1.jar
+7f7737cd5000-7f7737cd6000 r--s 00000000 08:12 3936864                    /home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/javax.inject-1.jar
+7f7737cd6000-7f7737cde000 rw-s 00000000 08:12 3409668                    /tmp/hsperfdata_ammar/29957
+7f7737cde000-7f7737cdf000 rw-p 00000000 00:00 0 
+7f7737cdf000-7f7737ce0000 ---p 00000000 00:00 0 
+7f7737ce0000-7f7737ce1000 r--p 00027000 08:12 6820669                    /lib/x86_64-linux-gnu/ld-2.27.so
+7f7737ce1000-7f7737ce2000 rw-p 00028000 08:12 6820669                    /lib/x86_64-linux-gnu/ld-2.27.so
+7f7737ce2000-7f7737ce3000 rw-p 00000000 00:00 0 
+7ffff6976000-7ffff6998000 rw-p 00000000 00:00 0                          [stack]
+7ffff69bb000-7ffff69be000 r--p 00000000 00:00 0                          [vvar]
+7ffff69be000-7ffff69c0000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xmx15g 
+java_command: org.apache.spark.deploy.SparkSubmit --master local[8] --name PySparkShell pyspark-shell
+java_class_path (initial): /home/ammar/.spark-2.4.0-bin-hadoop2.7/conf/:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/javax.inject-1.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jsp-api-2.1.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/bonecp-0.8.0.RELEASE.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-io-2.4.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/libthrift-0.9.3.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/lz4-java-1.4.0.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/scala-compiler-2.11.12.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/RoaringBitmap-0.5.11.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jsr305-1.3.9.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jersey-server-2.22.2.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/javax.inject-2.4.0-b34.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-hive-thriftserver_2.11-2.4.0.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/mesos-1.4.0-shaded-protobuf.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jersey-container-servlet-2.22.2.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/stream-2.7.0.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/spark-network-shuffle_2.11-2.4.0.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/py4j-0.10.7.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-mapreduce-client-app-2.7.3.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/commons-collections-3.2.2.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hive-exec-1.2.1.spark2.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-yarn-server-common-2.7.3.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-mapper-asl-1.9.13.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/avro-1.8.2.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/jackson-databind-2.6.7.1.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hk2-api-2.4.0-b34.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/hadoop-yarn-common-2.7.3.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars/leveldbjni-all-1.8.jar:/home/ammar/.spark-2.4.0-bin-hadoop2.7/jars
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+JRE_HOME=/usr/lib/jvm/java-8-oracle/jre
+PATH=/home/ammar/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+USERNAME=ammar
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xaced60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xaced60], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x907ca0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x907ca0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x907ca0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x907ca0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x907b70], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x908190], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: SIG_IGN, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: [libjvm.so+0x908190], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x908190], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION="Ubuntu 18.04.1 LTS"
+
+uname:Linux 4.15.0-42-generic #45-Ubuntu SMP Thu Nov 15 19:32:57 UTC 2018 x86_64
+libc:glibc 2.27 NPTL 2.27 
+rlimit: STACK 8192k, CORE 0k, NPROC 63476, NOFILE 4096, AS infinity
+load average:5.67 3.16 1.84
+
+/proc/meminfo:
+MemTotal:       16376728 kB
+MemFree:          138568 kB
+MemAvailable:       2688 kB
+Buffers:             580 kB
+Cached:            65112 kB
+SwapCached:          244 kB
+Active:         13559276 kB
+Inactive:        1243772 kB
+Active(anon):   13551892 kB
+Inactive(anon):  1232140 kB
+Active(file):       7384 kB
+Inactive(file):    11632 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+SwapTotal:       2097148 kB
+SwapFree:              0 kB
+Dirty:                24 kB
+Writeback:           124 kB
+AnonPages:      14737672 kB
+Mapped:            59280 kB
+Shmem:             46148 kB
+Slab:             132628 kB
+SReclaimable:      54704 kB
+SUnreclaim:        77924 kB
+KernelStack:       20112 kB
+PageTables:        92824 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    10285512 kB
+Committed_AS:   29317644 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:     2429788 kB
+DirectMap2M:    14299136 kB
+DirectMap1G:           0 kB
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 0-7
+cpu_memory_nodes: 0
+active_processor_count: 8
+cpu_quota: -1
+cpu_period: 100000
+cpu_shares: -1
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -2
+memory_soft_limit_in_bytes: -1
+memory_usage_in_bytes: 15157223424
+memory_max_usage_in_bytes: 396394496
+
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 94 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 94
+model name	: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0xc6
+cpu MHz		: 3714.355
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 6816.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 94
+model name	: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0xc6
+cpu MHz		: 3700.143
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 6816.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 94
+model name	: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0xc6
+cpu MHz		: 3706.688
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 6816.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 94
+model name	: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0xc6
+cpu MHz		: 3739.071
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 6816.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 94
+model name	: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0xc6
+cpu MHz		: 3719.004
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 6816.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 94
+model name	: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0xc6
+cpu MHz		: 3618.287
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 6816.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 94
+model name	: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0xc6
+cpu MHz		: 3769.686
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 6816.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 94
+model name	: Intel(R) Core(TM) i7-6700 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0xc6
+cpu MHz		: 3760.845
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp flush_l1d
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 6816.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 16376728k(139884k free), swap 2097148k(0k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.191-b12) for linux-amd64 JRE (1.8.0_191-b12), built on Oct  6 2018 05:43:09 by "java_re" with gcc 7.3.0
+
+time: Sat Dec 22 20:32:40 2018
+elapsed time: 175 seconds (0d 0h 2m 55s)
+
