@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfebe142-943d-4c2f-bfe9-ce2ff1d416d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.ipynb_checkpoints/ExploringData-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../.ipynb_checkpoints/ExploringData-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.ipynb_checkpoints/Recommendation-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../.ipynb_checkpoints/Recommendation-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ExploringData.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Recommendation.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../thing.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notebooks/.ipynb_checkpoints/ExploringData-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebooks/.ipynb_checkpoints/ExploringData-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notebooks/.ipynb_checkpoints/similarity_based-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebooks/.ipynb_checkpoints/similarity_based-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notebooks/ExploringData.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebooks/ExploringData.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notebooks/similarity_based.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../notebooks/similarity_based.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="756">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
             </state>
           </provider>
         </entry>
@@ -107,16 +103,21 @@
       <workItem from="1545574737447" duration="122000" />
       <workItem from="1545581149356" duration="491000" />
       <workItem from="1545583742985" duration="40000" />
+      <workItem from="1545644008400" duration="7000" />
+      <workItem from="1545862666304" duration="2571000" />
+      <workItem from="1545871636426" duration="30000" />
+      <workItem from="1545874779797" duration="10000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1066000" />
+    <option name="totallyTimeSpent" value="3684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.257886" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27006087" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -145,11 +146,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="756">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
         </state>
       </provider>
     </entry>

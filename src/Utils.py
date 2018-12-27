@@ -70,3 +70,5 @@ def get_recommendations(model, movies):
         .sort(["movieId", desc("rating")])
 
     return userRecs, movieRecs
+
+
